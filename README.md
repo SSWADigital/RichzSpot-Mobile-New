@@ -1,0 +1,1 @@
+# RichzSpot-Mobile-New
