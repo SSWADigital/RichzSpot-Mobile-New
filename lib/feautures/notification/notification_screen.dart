@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../core/constant/app_colors.dart'; // pastikan path sesuai struktur folder kamu
+import '../../core/constant/app_colors.dart';
 import 'widgets/notification_item.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -108,3 +108,11 @@ class NotificationScreen extends StatelessWidget {
   }
 }
 
+void main() {
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: NotificationScreen(),
+    ),
+  );
+}
