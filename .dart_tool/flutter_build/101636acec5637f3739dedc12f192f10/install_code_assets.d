@@ -1,0 +1,1 @@
+ D:\\CHARISAMF\\EXPRESSA\\RichzSpot-Mobile-New\\.dart_tool\\flutter_build\\101636acec5637f3739dedc12f192f10\\native_assets.json: 

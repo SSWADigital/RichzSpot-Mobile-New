@@ -4,14 +4,14 @@
             "outputFile": "com.example.richzspot.app-mergeDebugResources-41:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/jessey/Downloads/App/richzspot/android/app/src/main/res/values-night/styles.xml",
+                    "source": "D:\\CHARISAMF\\EXPRESSA\\RichzSpot-Mobile-New\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
-                        "startOffsets": "172,817",
+                        "startOffsets": "175,831",
                         "endLines": "7,16",
                         "endColumns": "12,12",
-                        "endOffsets": "475,981"
+                        "endOffsets": "482,997"
                     },
                     "to": {
                         "startLines": "2,6",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/jessey/.gradle/caches/8.10.2/transforms/3a4dcd3e8c92efa77cfa193b658940d9/transformed/appcompat-1.1.0/res/values-night-v8/values-night-v8.xml",
+                    "source": "C:\\Users\\hp\\.gradle\\caches\\8.10.2\\transforms\\845d779a6f9703b804f5e43452bcc2e5\\transformed\\appcompat-1.1.0\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
