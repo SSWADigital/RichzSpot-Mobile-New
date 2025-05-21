@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/constant/app_colors.dart';
 import 'widgets/notification_item.dart';
 
