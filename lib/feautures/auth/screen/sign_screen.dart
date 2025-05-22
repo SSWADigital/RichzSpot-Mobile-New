@@ -1,10 +1,82 @@
+import 'dart:convert';
+
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:richzspot/core/constant/app_colors.dart';
+import 'package:richzspot/core/constant/app_routes.dart';
+import 'package:richzspot/core/storage/app_storage.dart';
+import 'package:richzspot/fcmserverkey.dart';
+import 'package:richzspot/feautures/auth/services/auth_service.dart';
 import 'package:richzspot/shared/widgets/custom_input.dart';
 import 'package:richzspot/shared/widgets/gradient_button.dart';
+import 'package:richzspot/shared/widgets/show_messages.dart';
+import 'dart:io';
 
-class SignScreen extends StatelessWidget {
+class SignScreen extends StatefulWidget {
   const SignScreen({super.key});
+
+  @override
+  State<SignScreen> createState() => _SignScreenState();
+}
+
+class _SignScreenState extends State<SignScreen> {
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final authService = AuthService();
+
+  bool isLoading = false;
+
+  Future<void> handleLogin() async {
+    setState(() => isLoading = true);
+
+    String? fcmToken = await FirebaseMessaging.instance.getToken();
+    String platform = Platform.isAndroid ? 'android' : (Platform.isIOS ? 'ios' : 'web');
+    print('FCM Device Token saat Login: $fcmToken');
+    print('Platform saat Login: $platform');
+
+    final getFcmServerKey = GetFcmServerKey();
+    getFcmServerKey.serverToken().then((value) async {
+    await AppStorage.setFCMServerToken(value!);
+    print('FCM Server Token: $value');
+    }).catchError((error) {
+      print('Error getting FCM Server Token: $error');      
+    });
+
+    // Simpan token dan platform ke storage
+    await AppStorage.setFCMDeviceToken(fcmToken!);
+    await AppStorage.setPlatform(platform);
+
+    final result = await authService.login(
+      emailController.text,
+      passwordController.text,
+      fcmToken, // Kirim FCM token
+      platform, // Kirim platform
+    );
+
+    setState(() => isLoading = false);
+
+    if (result['status'] == true) {
+      final token = result['token'];
+      final user = result['data'];
+
+
+      await AppStorage.saveLoginData(token, user);
+
+      if (user['face_token'] == null || user['face_token'] == '') {
+        Navigator.pushReplacementNamed(context, AppRoutes.faceRecognationRegister);
+      } else {
+        // if (user['role_id'] == '4') {
+          // Navigator.pushReplacementNamed(context, AppRoutes.appRootStaff);
+        // } else {
+          Navigator.pushReplacementNamed(context, AppRoutes.appRoot);
+        // }
+      }
+    } else {
+      ShowMessage.errorNotification(result['message'] ?? 'Login failed', context);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +91,6 @@ class SignScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Header
                   Column(
                     children: const [
                       Text(
@@ -66,58 +137,61 @@ class SignScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(24),
                     child: Column(
                       children: [
-                        const CustomInputField(
-                          placeholder: 'Enter your email',
-                          icon: Icons.mail_outline,
-                        ),
-                        const SizedBox(height: 16),
-                        const CustomInputField(
-                          placeholder: 'Enter your password',
-                          icon: Icons.remove_red_eye_outlined,
-                          isPassword: true,
-                        ),
-                        const SizedBox(height: 24),
-                        GradientButton(
-                          text: 'Login',
-                          onPressed: () {},
-                        ),
-                        const SizedBox(height: 16),
-                        const Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.primary,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
+                        CustomInputField(
+                placeholder: 'Enter your email',
+                icon: Icons.mail_outline,
+                controller: emailController,
+              ),
+              const SizedBox(height: 16),
+              CustomInputField(
+                placeholder: 'Enter your password',
+                icon: Icons.lock_outline,
+                isPassword: true,
+                controller: passwordController,
+              ),
+              const SizedBox(height: 24),
+              GradientButton(
+                text: isLoading ? 'Loading...' : 'Login',
+                onPressed: handleLogin,
+              ),
+                        // const SizedBox(height: 16),
+                        // const Text(
+                        //   'Forgot Password?',
+                        //   style: TextStyle(
+                        //     fontSize: 16,
+                        //     color: AppColors.primary,
+                        //     fontWeight: FontWeight.w400,
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 24),
+                  // const SizedBox(height: 24),
 
                   // Sign Up Text
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Don't have an account? ",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: AppColors.textSecondary,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: const Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppColors.primary,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     const Text(
+                  //       "Don't have an account? ",
+                  //       style: TextStyle(
+                  //         fontSize: 16,
+                  //         color: AppColors.textSecondary,
+                  //       ),
+                  //     ),
+                  //     GestureDetector(
+                  //       onTap: () {},
+                  //       child: const Text(
+                  //         'Sign Up',
+                  //         style: TextStyle(
+                  //           fontSize: 16,
+                  //           color: AppColors.primary,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  
                   const SizedBox(height: 48),
 
                   // Face Recognition Section

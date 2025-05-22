@@ -30,9 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  camera: ^0.10.5+5
-  google_mlkit_face_detection: ^0.9.0
-  permission_handler: ^11.0.1
+  camera: ^0.11.1
+  google_mlkit_face_detection: ^0.10.0
+  permission_handler: ^12.0.0+1
   
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,10 +41,37 @@ dependencies:
   image_picker: ^1.1.2
   http: ^1.4.0
   shared_preferences: ^2.5.3
+  image: ^4.5.4
+  path_provider: ^2.1.5
+  google_mlkit_commons: ^0.6.1
+  overlay_support: ^2.1.0
+  intl: ^0.20.2
+  url_launcher: ^6.3.1
+  cached_network_image: ^3.4.1
+  open_filex: ^4.7.0
+  geolocator: ^14.0.0
+  firebase_core: ^3.13.0
+  firebase_messaging: ^15.2.5
+  flutter_local_notifications: ^14.1.1
+  googleapis_auth: ^2.0.0
+  google_fonts: ^6.2.1
+  flutter_launcher_icons: ^0.14.3
+  # flutter_local_notifications: 15.1.0+1
+  # flutter_local_notifications: ^19.2.0
+
+dependency_overrides:
+  google_mlkit_commons: ^0.6.1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+    
+flutter_launcher_icons: 
+  android: true
+  ios: true
+  # image_path: "assets/icon/ic_launcher.svg"
+  image_path: "assets/icon/ic_launcher.svg"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -60,6 +87,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/icon/
+    - assets/profile/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

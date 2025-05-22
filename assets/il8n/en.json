@@ -1,0 +1,11 @@
+{
+  "greeting": "Hello",
+  "welcome_message": "Welcome to our application!",
+  "button_submit": "Submit",
+  "error_title": "An Error Occurred",
+  "error_message": "Sorry, there was an issue processing your request.",
+  "profile": "Profile",
+  "logout_confirmation": "Are you sure you want to logout?",
+  "cancel": "Cancel",
+  "logout": "Logout"
+}

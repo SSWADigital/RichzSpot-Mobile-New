@@ -1,50 +1,230 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:intl/intl.dart';
 import 'package:richzspot/core/constant/app_colors.dart';
+import 'package:richzspot/core/constant/app_routes.dart';
+import 'package:richzspot/core/storage/app_storage.dart';
+import 'package:richzspot/fcmserverkey.dart';
+import 'package:richzspot/feautures/announcement/screen/announcement_detail_screen.dart';
+import 'package:richzspot/feautures/announcement/service/announcment_service.dart';
+import 'package:richzspot/feautures/face_recognation/service/absen_servicel.dart';
+import 'package:richzspot/feautures/notification/service/notification_service.dart';
 
-class DashboardStaff extends StatelessWidget {
-  const DashboardStaff({super.key});
+import '../../main.dart';
+
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return 
-    SafeArea(
-      child:   Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Container(
-          // constraints: const BoxConstraints(maxWidth: 480),
-          // margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              _buildHeader(),
-              Container(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    // _buildTimeTrackingSection(),
-              _buildChartImage(),
-              _buildGridSection(),
-              _buildKPISection(),
-              // _buildBottomNavigation(),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: _buildBottomNavigation(),
-    ),
-    );
-  
+  State<HomeScreen> createState() => HomeScreenState();
+}
+
+class HomeScreenState extends State<HomeScreen> {
+List<Map<String, dynamic>> announcements = [];
+  var userData;
+
+  Map<String, dynamic> _absenData = {
+    'checkin': '-',
+    'checkout': '-',
+    'status': '0',
+  };
+
+  final AbsenService _absenService = AbsenService();
+  final PageController _bannerController = PageController(initialPage: 0);
+  int _currentBannerIndex = 0;
+  bool _isLoading = true;
+
+   @override
+  void dispose() {
+    _bannerController.dispose();
+    super.dispose();
   }
 
-Widget _buildHeader() {
-  return Column(
+    @override
+    void initState() {
+      super.initState();
+      getUserData();
+    //   _setupForegroundMessageListener();
+    // _handleInitialMessage();
+      
+    }
+
+  Future<void> getUserData() async {
+  final data = await AppStorage.getUser();
+  setState(() {
+    userData = data;
+    // print("user Id: ${userData['id_departemen']}");
+    _loadAnnouncements();
+    _checkTodayAttendance();
+  });
+}
+
+  //   void _setupForegroundMessageListener() {
+  //   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+  //     print('Got a message whilst in the foreground!');
+  //     print('Message data: ${message.data}');
+
+  //     if (message.notification != null) {
+  //       print('Message also contained a notification: ${message.notification}');
+  //       _showLocalNotification(message); // Show local notification in foreground
+  //     }
+  //   });
+
+  //   FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+  //     print('Message opened app: ${message.data}');
+  //     _handleNavigation(message);
+  //   });
+  // }
+
+  // Future<void> _handleInitialMessage() async {
+  //   final RemoteMessage? initialMessage =
+  //       await FirebaseMessaging.instance.getInitialMessage();
+
+  //   if (initialMessage != null) {
+  //     _handleNavigation(initialMessage);
+  //   }
+  // }
+
+  // void _handleNavigation(RemoteMessage message) {
+  //   if (message.data['route'] != null) {
+  //     Navigator.pushNamed(context, message.data['route']);
+  //   }
+  // }
+
+  // Future<void> _showLocalNotification(RemoteMessage message) async {
+  //   final AndroidNotificationDetails androidPlatformChannelSpecifics =
+  //       AndroidNotificationDetails(
+  //     'button_channel_id', // Replace with your channel ID
+  //     'Button Triggered Notifications', // Replace with your channel name
+  //     channelDescription: 'Notifications triggered by a button in the app',
+  //     importance: Importance.max,
+  //     priority: Priority.high,
+  //     ticker: 'ticker',
+  //   );
+
+  //   final NotificationDetails platformChannelSpecifics = NotificationDetails(
+  //       android: androidPlatformChannelSpecifics,
+  //       iOS: const DarwinNotificationDetails());
+
+  //   await flutterLocalNotificationsPlugin.show(
+  //     0, // Notification ID (can be unique for each notification)
+  //     message.notification?.title ?? 'Test Notification Title', // Default title
+  //     message.notification?.body ?? 'This is a test notification triggered by a button!', // Default body
+  //     platformChannelSpecifics,
+  //     payload: message.data['route'], // Optional payload for navigation
+  //   );
+  // }
+
+  // // Function to trigger a local notification directly
+  // Future<void> _triggerLocalNotification() async {
+  //   const AndroidNotificationDetails androidPlatformChannelSpecifics =
+  //       AndroidNotificationDetails(
+  //     'button_channel_id', // Different channel ID for button-triggered notifications
+  //     'Button Triggered Notifications',
+  //     channelDescription: 'Notifications triggered by a button in the app',
+  //     importance: Importance.max,
+  //     priority: Priority.high,
+  //     ticker: 'ticker',
+  //   );
+  //   const NotificationDetails platformChannelSpecifics = NotificationDetails(
+  //       android: androidPlatformChannelSpecifics,
+  //       iOS: DarwinNotificationDetails());
+  //   await flutterLocalNotificationsPlugin.show(
+  //     1, // Different notification ID
+  //     'Button Notification',
+  //     'This notification was triggered by pressing a button!',
+  //     platformChannelSpecifics,
+  //     payload: 'button_payload', // Optional payload
+  //   );
+
+  //   final get = GetFcmServerKey();
+  //   get.serverToken().then((value) {
+  //     print('Server Token: $value');
+  //   });
+  // }
+
+ Future<void> _sendNotification() async {
+    NotificationService notificationService = NotificationService();
+    String? token = await AppStorage.getFCMDeviceToken();
+    String? serverToken = await AppStorage.getFCMServerToken();
+    String? platform = await AppStorage.getPlatform();
+    
+    notificationService.sendFcmNotificationV1(
+      userId: userData['user_id'],
+      recipientToken: token ?? '',
+      type: 'test',
+      action: 'testing action',
+      menu: 'testing menu',
+      additionalData: {
+        'key1': 'value1',
+        'key2': 'value2',
+      },
+      // serverToken: serverToken,
+      // platform: platform,
+      title: 'Test Notification',
+      body: 'This is a test notification triggered by a button! ${userData['user_nama_lengkap']}',
+    );
+  }
+
+    Future<void> _checkTodayAttendance() async {
+    if (userData == null || userData['user_id'] == null || !mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+      return;
+    }
+
+    try {
+      final response = await _absenService.cekAbsen();
+      if (mounted) {
+        setState(() {
+          _absenData = {
+            'checkin': response.checkin,
+            'checkout': response.checkout,
+            'status': response.status,
+          };
+          _isLoading = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+        print('Error checking attendance: $e');
+      }
+    }
+  }
+
+ Future<void> _loadAnnouncements() async {
+    if (userData != null && userData['id_departemen'] != null) {
+      try {
+        final data = await AnnouncementService.getAnnouncementsByDepartment(userData['id_departemen']);
+        setState(() {
+          announcements = data;
+        });
+      } catch (e) {
+        // Handle error loading announcements
+        print('Error loading announcements: $e');
+        // Optionally show a snackbar or error message to the user
+      }
+    }
+  }
+
+Widget _buildHeader(var userData) {
+  // Format tanggal hari ini
+  final now = DateTime.now();
+  final todayFormatted = DateFormat('EEEE • d MMMM', 'id_ID').format(now);
+
+  return Stack(
+    clipBehavior: Clip.none, // Allow child to overflow the Stack
     children: [
       // Bagian Header Biru
       Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 32),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [AppColors.primaryBlue, AppColors.lightBlue],
@@ -59,25 +239,25 @@ Widget _buildHeader() {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('PT. SWA DIGITAL',
-                    style: TextStyle(color: Colors.white, fontSize: 12)),
-                const SizedBox(height: 4),
-                Text('Candra Vradita',
+                Text('${userData['departemen_nama']}',
+                    style: TextStyle(color: Colors.white, fontSize: 14)),
+                const SizedBox(height: 8),
+                Text('${userData['user_nama_lengkap']}',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold)),
-                const SizedBox(height: 4),
-                Text('Programmer',
-                    style: TextStyle(color: Colors.white, fontSize: 14)),
+                const SizedBox(height: 8),
+                Text('${userData['role_nama']}',
+                    style: TextStyle(color: Colors.white, fontSize: 16)),
               ],
             ),
             // Foto profil bulat
             ClipOval(
               child: Image.network(
-                'https://cdn.builder.io/api/v1/image/assets/TEMP/2bc22051ad4bf4969eb17b95b0fa6132c55146a8?placeholderIfAbsent=true&apiKey=f98f93bc0b6c4ec1ad8e8e21245a1bea',
-                width: 48,
-                height: 48,
+                '${userData['user_foto']}',
+                width: 72,
+                height: 72,
                 fit: BoxFit.cover,
               ),
             ),
@@ -85,11 +265,13 @@ Widget _buildHeader() {
         ),
       ),
 
-      Container(
-        margin: const EdgeInsets.only(top: 10),
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+      // Container untuk Check-in/Check-out yang menimpa header
+      Positioned(
+        top: 135, // Sesuaikan nilai ini untuk mengatur seberapa banyak tumpang tindih
+        left: 16,
+        right: 16,
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: AppColors.lightBlueBackground,
             borderRadius: BorderRadius.circular(16),
@@ -101,29 +283,29 @@ Widget _buildHeader() {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Today • 7 Mei 2025',
+                    todayFormatted, // Menggunakan tanggal hari ini yang diformat
                     style: TextStyle(
                       color: AppColors.textDark,
-                      fontSize: 16,
+                      fontSize: 18,
                     ),
                   ),
                   Row(
                     children: [
                       Icon(Icons.access_time,
-                          color: AppColors.textGray, size: 18),
-                      const SizedBox(width: 4),
+                          color: AppColors.textGray, size: 20),
+                      const SizedBox(width: 6),
                       Text(
                         '08:00 - 16:30',
                         style: TextStyle(
                           color: AppColors.textGray,
-                          fontSize: 16,
+                          fontSize: 18,
                         ),
                       ),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 24),
               // Baris bawah: box check-in dan check-out
               Row(
                 children: [
@@ -138,110 +320,176 @@ Widget _buildHeader() {
       ),
     ],
   );
-}
+}// Widget _buildTimeTrackingSection() {
 
-  // Widget _buildTimeTrackingSection() {
   //   return 
   // }
+ Widget _buildAnnouncementBanner() {
+    if (announcements.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    return Column(
+      children: [
+        SizedBox(
+          height: 200,
+          child: PageView.builder(
+            controller: _bannerController,
+            itemCount: announcements.length,
+            onPageChanged: (index) {
+              setState(() {
+                _currentBannerIndex = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              final announcement = announcements[index];
+              return GestureDetector( // Wrap the banner in a GestureDetector
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AnnouncementDetailScreen(announcement: announcement),
+                    ),
+                  );
+                },
+                child: Container(
+                  margin: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: AppColors.primary.withOpacity(0.8),
+                  ),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      if (announcement['berita_foto'] != null && announcement['berita_foto'].isNotEmpty)
+                        CachedNetworkImage(
+                          imageUrl: announcement['berita_foto'],
+                          fit: BoxFit.cover,
+                          errorWidget: (context, url, error) => const Icon(Icons.image_not_supported, color: Colors.white),
+                          placeholder: (context, url) => const Center(child: CircularProgressIndicator(color: Colors.white)),
+                        ),
+                      Container(
+                        padding: const EdgeInsets.all(16.0),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.bottomCenter,
+                            end: Alignment.topCenter,
+                            colors: [
+                              Colors.black.withOpacity(0.6),
+                              Colors.transparent,
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              announcement['berita_judul'] ?? 'Announcement',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18.0,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            if (announcement['berita_keterangan'] != null && announcement['berita_keterangan'].isNotEmpty)
+                              Text(
+                                announcement['berita_keterangan'],
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontSize: 14.0,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        if (announcements.length > 1)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: announcements.asMap().entries.map((entry) {
+                return Container(
+                  width: 8.0,
+                  height: 8.0,
+                  margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: _currentBannerIndex == entry.key ? AppColors.primary : Colors.grey,
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+      ],
+    );
+  }
 
 Widget _buildCheckInBox() {
-  return Container(
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: AppColors.successGreen.withOpacity(0.1),
-            shape: BoxShape.circle,
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.login, color: Colors.green, size: 20),
+              const SizedBox(width: 8),
+              Text('CHECK IN', style: TextStyle(color: AppColors.textGray, fontSize: 12)),
+            ],
           ),
-          padding: const EdgeInsets.all(8),
-          child: Icon(
-            Icons.login,
-            color: AppColors.successGreen,
-            size: 20,
+          const SizedBox(height: 8),
+          Text(
+            _isLoading ? '...' : _absenData['checkin'],
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green),
           ),
-        ),
-        const SizedBox(width: 12),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'CHECK IN',
-              style: TextStyle(
-                color: AppColors.textGray,
-                fontSize: 12,
-                fontFamily: 'Inter',
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              '07:35:07',
-              style: TextStyle(
-                color: AppColors.successGreen,
-                fontSize: 14,
-                fontFamily: 'Inter',
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}
+        ],
+      ),
+    );
+  }
 
-Widget _buildCheckOutBox() {
-  return Container(
-    padding: const EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: Row(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: AppColors.warningOrange.withOpacity(0.1),
-            shape: BoxShape.circle,
+  Widget _buildCheckOutBox() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.logout, color: Colors.orange, size: 20),
+              const SizedBox(width: 8),
+              Text('CHECK OUT', style: TextStyle(color: AppColors.textGray, fontSize: 12)),
+            ],
           ),
-          padding: const EdgeInsets.all(8),
-          child: Icon(
-            Icons.logout,
-            color: AppColors.warningOrange,
-            size: 20,
+          const SizedBox(height: 8),
+          Text(
+            _isLoading ? '...' : _absenData['checkout'],
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.orange),
           ),
-        ),
-        const SizedBox(width: 12),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'CHECK OUT',
-              style: TextStyle(
-                color: AppColors.textGray,
-                fontSize: 12,
-                fontFamily: 'Inter',
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              '18:05:07',
-              style: TextStyle(
-                color: AppColors.warningOrange,
-                fontSize: 14,
-                fontFamily: 'Inter',
-              ),
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-}
-
+        ],
+      ),
+    );
+  }
 
   Widget _buildChartImage() {
     return Container(
@@ -263,29 +511,48 @@ Widget _buildGridSection() {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _buildGridItem('assets/icon/1.png', 'Attendance'),
-            _buildGridItem('assets/icon/2.png', 'Activity'),
-            _buildGridItem('assets/icon/3.png', 'Leave'),
-            _buildGridItem('assets/icon/4.png', 'Assignment'),
+            _buildGridItem('assets/icon/1.png', AppRoutes.attendance, 'Attendance',),
+            _buildGridItem('assets/icon/4.png', AppRoutes.activity, 'Activity'),
+            _buildGridItem('assets/icon/3.png', AppRoutes.leave, 'Leave'),
           ],
         ),
         const SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _buildGridItem('assets/icon/5.png', 'Overtime'),
-            _buildGridItem('assets/icon/6.png', 'Claim'),
-            _buildGridItem('assets/icon/8.png', 'Payslip'),
-            _buildGridItem('assets/icon/9.png', 'More'),
+            _buildGridItem('assets/icon/2.png', AppRoutes.timeOff, 'Time Off'),
+
+            _buildGridItem('assets/icon/5.png', AppRoutes.overtime, 'Overtime'),
+            // _buildGridItem('assets/icon/6.png', AppRoutes.claim, 'Claim'),
+            _buildGridItem('assets/icon/8.png', AppRoutes.payslip, 'Payslip'),
+            // _buildGridItem('assets/icon/9.png', AppRoutes.more, 'More'),
           ],
         ),
+        const SizedBox(height: 16),
+        if(userData['role_id'] != "2") ...[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildGridItem('assets/icon/3.png', AppRoutes.leaveApproval, 'Appv Leave'),
+              _buildGridItem('assets/icon/2.png', AppRoutes.timeOffApproval, 'Appv Time Off'),
+              _buildGridItem('assets/icon/5.png', AppRoutes.overtimeApproval, 'Appv Overtime'),
+              // _buildGridItem('assets/icon/11.png', AppRoutes.announcement, 'Announcement'),
+              // _buildGridItem('assets/icon/12.png', AppRoutes.chat, 'Chat'),
+            ],
+          ),
+        ],
       ],
     ),
   );
 }
 
-Widget _buildGridItem(String assetPath, [String? label]) {
-  return Column(
+Widget _buildGridItem(String assetPath, String route, [String? label]) {
+  return 
+  GestureDetector(
+    onTap: () {
+      Navigator.pushNamed(context, route);
+    },
+    child:   Column(
     children: [
       Image.asset(
         assetPath,
@@ -305,7 +572,9 @@ Widget _buildGridItem(String assetPath, [String? label]) {
         ),
       ],
     ],
+  ),
   );
+
 }
 
   Widget _buildKPISection() {
@@ -344,10 +613,10 @@ Widget _buildGridItem(String assetPath, [String? label]) {
             ),
             child: Column(
               children: [
-                _buildKPIItem('Lorem', 85, AppColors.primaryBlue),
-                _buildKPIItem('Ipsum', 90, AppColors.successGreen),
-                _buildKPIItem('Dorom', 82, AppColors.warningOrange),
-                _buildKPIItem('Siptamo', 88, AppColors.primaryBlue),
+                _buildKPIItem('Target', 85, AppColors.primaryBlue),
+                _buildKPIItem('Work Time', 90, AppColors.successGreen),
+                _buildKPIItem('Task', 82, AppColors.warningOrange),
+                _buildKPIItem('AVG', 88, AppColors.primaryBlue),
               ],
             ),
           ),
@@ -425,7 +694,6 @@ Widget _buildBottomNavigation() {
   );
 }
 
-
 Widget _buildNavItem(IconData icon, String label, bool isActive) {
   return Column(
     mainAxisSize: MainAxisSize.min,
@@ -502,6 +770,55 @@ Widget _buildCenterActionButton() {
   );
 }
 
-  
+  @override
+  Widget build(BuildContext context) {
 
+     if (userData == null) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator(
+          color: Colors.blueAccent,
+        )),
+      );
+    }
+
+    return 
+    SafeArea(
+      child:   Scaffold(
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
+        child: Container(
+          // constraints: const BoxConstraints(maxWidth: 480),
+          // margin: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              _buildHeader(userData),
+              SizedBox(
+                height: 150,
+              ),
+              Container(
+                padding: EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    // _buildTimeTrackingSection(),
+                    _buildAnnouncementBanner(),
+              // _buildChartImage(),
+              _buildGridSection(),
+              _buildKPISection(),
+            //   ElevatedButton(
+            //   onPressed: _sendNotification,
+            //   child: const Text('Trigger Local Notification'),
+            // ),
+              // _buildBottomNavigation(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      // bottomNavigationBar: _buildBottomNavigation(),
+    ),
+    );
+  
+  }
 }

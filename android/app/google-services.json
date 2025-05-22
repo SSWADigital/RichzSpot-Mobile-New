@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "440995731038",
+    "project_id": "richzspot-mobile",
+    "storage_bucket": "richzspot-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440995731038:android:3cd80cb460b4f994e546cf",
+        "android_client_info": {
+          "package_name": "com.example.richzspot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSVcLtuR8484D1s4Esvo2NLdPyOXL-kqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

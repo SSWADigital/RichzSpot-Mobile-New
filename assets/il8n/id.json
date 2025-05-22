@@ -1,0 +1,11 @@
+{
+  "greeting": "Halo",
+  "welcome_message": "Selamat datang di aplikasi kami!",
+  "button_submit": "Kirim",
+  "error_title": "Terjadi Kesalahan",
+  "error_message": "Maaf, ada masalah saat memproses permintaan Anda.",
+  "profile": "Profil",
+  "logout_confirmation": "Apakah Anda yakin ingin keluar?",
+  "cancel": "Batal",
+  "logout": "Keluar"
+}

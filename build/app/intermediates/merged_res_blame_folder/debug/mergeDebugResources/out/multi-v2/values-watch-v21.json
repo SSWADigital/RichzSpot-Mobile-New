@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.richzspot.app-mergeDebugResources-41:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "com.example.richzspot.app-mergeDebugResources-55:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "/home/jessey/.gradle/caches/8.10.2/transforms/3a4dcd3e8c92efa77cfa193b658940d9/transformed/appcompat-1.1.0/res/values-watch-v21/values-watch-v21.xml",
+                    "source": "/home/jessey/.gradle/caches/8.9/transforms/70c8b275d4c0ba085873261e6cba6a3c/transformed/appcompat-1.6.1/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

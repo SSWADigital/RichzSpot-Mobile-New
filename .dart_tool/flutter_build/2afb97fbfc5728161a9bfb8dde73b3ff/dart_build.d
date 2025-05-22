@@ -1,0 +1,1 @@
+ /home/jessey/Development/App/RichzSpot-Mobile-New/.dart_tool/flutter_build/2afb97fbfc5728161a9bfb8dde73b3ff/dart_build_result.json: 
