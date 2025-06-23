@@ -437,16 +437,16 @@
     <string name="fallback_menu_item_open_in_browser">Open in browser</string>
     <string name="fallback_menu_item_share_link">Share link</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
-    <string name="gcm_defaultSenderId" translatable="false">440995731038</string>
-    <string name="google_api_key" translatable="false">AIzaSyDSVcLtuR8484D1s4Esvo2NLdPyOXL-kqk</string>
-    <string name="google_app_id" translatable="false">1:440995731038:android:3cd80cb460b4f994e546cf</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDSVcLtuR8484D1s4Esvo2NLdPyOXL-kqk</string>
-    <string name="google_storage_bucket" translatable="false">richzspot-mobile.firebasestorage.app</string>
+    <string name="gcm_defaultSenderId" translatable="false">324674983335</string>
+    <string name="google_api_key" translatable="false">AIzaSyCTmSzs6NOE6O2JLqp68Dbok-b5s9cIFyk</string>
+    <string name="google_app_id" translatable="false">1:324674983335:android:298ae88d68a6daaa7a9282</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCTmSzs6NOE6O2JLqp68Dbok-b5s9cIFyk</string>
+    <string name="google_storage_bucket" translatable="false">richzspotnewmobile.firebasestorage.app</string>
     <string name="not_set">Not set</string>
     <string name="preference_copied">
         \"<ns1:g example="Version 1.1" id="summary">%1$s</ns1:g>\" copied to clipboard.
     </string>
-    <string name="project_id" translatable="false">richzspot-mobile</string>
+    <string name="project_id" translatable="false">richzspotnewmobile</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="summary_collapsed_preference_list"><ns1:g id="current_items">%1$s</ns1:g>, <ns1:g id="added_items">%2$s</ns1:g></string>
@@ -2038,6 +2038,14 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="Theme.PlayCore.Transparent" parent="android:Theme">
+<item name="android:windowIsTranslucent">true</item>
+<item name="android:windowBackground">@android:color/transparent</item>
+<item name="android:windowContentOverlay">@null</item>
+<item name="android:windowNoTitle">true</item>
+<item name="android:windowIsFloating">true</item>
+<item name="android:backgroundDimEnabled">false</item>
+</style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>

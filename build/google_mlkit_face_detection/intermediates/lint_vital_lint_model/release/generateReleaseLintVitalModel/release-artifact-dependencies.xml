@@ -1,8 +1,8 @@
 <dependencies>
   <compile
-      roots="com.google.mlkit:face-detection:16.1.6@aar,:@@:google_mlkit_commons::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,com.google.android.gms:play-services-mlkit-face-detection:17.1.0@aar,com.google.mlkit:vision-common:17.3.0@aar,com.google.mlkit:common:18.10.0@aar,com.google.android.datatransport:transport-backend-cct:2.3.3@aar,com.google.android.datatransport:transport-runtime:2.2.6@aar,com.google.android.datatransport:transport-api:2.2.1@aar,com.google.firebase:firebase-components:16.1.0@aar,com.google.firebase:firebase-encoders-json:17.1.0@aar,com.google.firebase:firebase-encoders:16.1.0@jar,com.google.android.gms:play-services-base:18.1.0@aar,com.google.mlkit:vision-interfaces:16.1.0@aar,com.google.android.gms:play-services-tasks:18.0.2@aar,com.google.android.gms:play-services-basement:18.1.0@aar,androidx.appcompat:appcompat:1.6.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.appcompat:appcompat-resources:1.6.1@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.vectordrawable:vectordrawable-animated:1.1.0@aar,androidx.vectordrawable:vectordrawable:1.1.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.exifinterface:exifinterface:1.0.0@aar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.interpolator:interpolator:1.0.0@aar,androidx.annotation:annotation-jvm:1.8.0@jar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.annotation:annotation-experimental:1.4.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar,javax.inject:javax.inject:1@jar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,com.google.android.odml:image:1.0.0-beta1@aar,com.google.firebase:firebase-annotations:16.0.0@jar,com.getkeepsafe.relinker:relinker:1.4.5@aar">
+      roots="com.google.mlkit:face-detection:16.1.7@aar,:@@:google_mlkit_commons::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,com.google.android.gms:play-services-mlkit-face-detection:17.1.0@aar,com.google.mlkit:vision-common:17.3.0@aar,com.google.mlkit:common:18.11.0@aar,com.google.android.datatransport:transport-backend-cct:2.3.3@aar,com.google.android.datatransport:transport-runtime:2.2.6@aar,com.google.android.datatransport:transport-api:2.2.1@aar,com.google.firebase:firebase-components:16.1.0@aar,com.google.firebase:firebase-encoders-json:17.1.0@aar,com.google.firebase:firebase-encoders:16.1.0@jar,com.google.android.gms:play-services-base:18.5.0@aar,com.google.mlkit:vision-interfaces:16.1.0@aar,com.google.android.gms:play-services-tasks:18.2.0@aar,com.google.android.gms:play-services-basement:18.4.0@aar,androidx.appcompat:appcompat:1.6.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.appcompat:appcompat-resources:1.6.1@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.customview:customview:1.0.0@aar,androidx.vectordrawable:vectordrawable-animated:1.1.0@aar,androidx.vectordrawable:vectordrawable:1.1.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.exifinterface:exifinterface:1.0.0@aar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.interpolator:interpolator:1.0.0@aar,androidx.annotation:annotation-jvm:1.8.0@jar,androidx.window:window-java:1.2.0@aar,androidx.window:window:1.2.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar,androidx.annotation:annotation-experimental:1.4.0@aar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar,javax.inject:javax.inject:1@jar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,com.google.android.odml:image:1.0.0-beta1@aar,com.google.firebase:firebase-annotations:16.0.0@jar,com.getkeepsafe.relinker:relinker:1.4.5@aar">
     <dependency
-        name="com.google.mlkit:face-detection:16.1.6@aar"
+        name="com.google.mlkit:face-detection:16.1.7@aar"
         simpleName="com.google.mlkit:face-detection"/>
     <dependency
         name=":@@:google_mlkit_commons::release"
@@ -17,7 +17,7 @@
         name="com.google.mlkit:vision-common:17.3.0@aar"
         simpleName="com.google.mlkit:vision-common"/>
     <dependency
-        name="com.google.mlkit:common:18.10.0@aar"
+        name="com.google.mlkit:common:18.11.0@aar"
         simpleName="com.google.mlkit:common"/>
     <dependency
         name="com.google.android.datatransport:transport-backend-cct:2.3.3@aar"
@@ -38,16 +38,16 @@
         name="com.google.firebase:firebase-encoders:16.1.0@jar"
         simpleName="com.google.firebase:firebase-encoders"/>
     <dependency
-        name="com.google.android.gms:play-services-base:18.1.0@aar"
+        name="com.google.android.gms:play-services-base:18.5.0@aar"
         simpleName="com.google.android.gms:play-services-base"/>
     <dependency
         name="com.google.mlkit:vision-interfaces:16.1.0@aar"
         simpleName="com.google.mlkit:vision-interfaces"/>
     <dependency
-        name="com.google.android.gms:play-services-tasks:18.0.2@aar"
+        name="com.google.android.gms:play-services-tasks:18.2.0@aar"
         simpleName="com.google.android.gms:play-services-tasks"/>
     <dependency
-        name="com.google.android.gms:play-services-basement:18.1.0@aar"
+        name="com.google.android.gms:play-services-basement:18.4.0@aar"
         simpleName="com.google.android.gms:play-services-basement"/>
     <dependency
         name="androidx.appcompat:appcompat:1.6.1@aar"
@@ -140,14 +140,11 @@
         name="androidx.annotation:annotation-jvm:1.8.0@jar"
         simpleName="androidx.annotation:annotation-jvm"/>
     <dependency
-        name="androidx.window:window:1.2.0@aar"
-        simpleName="androidx.window:window"/>
-    <dependency
         name="androidx.window:window-java:1.2.0@aar"
         simpleName="androidx.window:window-java"/>
     <dependency
-        name="androidx.annotation:annotation-experimental:1.4.0@aar"
-        simpleName="androidx.annotation:annotation-experimental"/>
+        name="androidx.window:window:1.2.0@aar"
+        simpleName="androidx.window:window"/>
     <dependency
         name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
         simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"/>
@@ -160,6 +157,9 @@
     <dependency
         name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk7"/>
+    <dependency
+        name="androidx.annotation:annotation-experimental:1.4.0@aar"
+        simpleName="androidx.annotation:annotation-experimental"/>
     <dependency
         name="org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib"/>
@@ -189,9 +189,9 @@
         simpleName="com.getkeepsafe.relinker:relinker"/>
   </compile>
   <package
-      roots="com.google.mlkit:face-detection:16.1.6@aar,:@@:google_mlkit_commons::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,com.google.android.gms:play-services-mlkit-face-detection:17.1.0@aar,com.google.mlkit:vision-common:17.3.0@aar,com.google.mlkit:common:18.10.0@aar,com.google.android.datatransport:transport-backend-cct:2.3.3@aar,com.google.android.datatransport:transport-runtime:2.2.6@aar,com.google.android.datatransport:transport-api:2.2.1@aar,com.google.android.gms:play-services-base:18.1.0@aar,com.google.mlkit:vision-interfaces:16.1.0@aar,com.google.android.gms:play-services-tasks:18.0.2@aar,com.google.android.gms:play-services-basement:18.1.0@aar,com.google.firebase:firebase-components:16.1.0@aar,com.google.firebase:firebase-encoders-json:17.1.0@aar,com.google.firebase:firebase-encoders:16.1.0@jar,androidx.appcompat:appcompat-resources:1.6.1@aar,androidx.appcompat:appcompat:1.6.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.emoji2:emoji2-views-helper:1.2.0@aar,androidx.emoji2:emoji2:1.2.0@aar,androidx.customview:customview:1.0.0@aar,androidx.vectordrawable:vectordrawable-animated:1.1.0@aar,androidx.vectordrawable:vectordrawable:1.1.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.profileinstaller:profileinstaller:1.3.1@aar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,androidx.exifinterface:exifinterface:1.0.0@aar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.interpolator:interpolator:1.0.0@aar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.resourceinspection:resourceinspection-annotation:1.0.1@jar,androidx.concurrent:concurrent-futures:1.1.0@jar,androidx.window.extensions.core:core:1.0.0@aar,com.getkeepsafe.relinker:relinker:1.4.5@aar,javax.inject:javax.inject:1@jar,com.google.android.odml:image:1.0.0-beta1@aar,com.google.firebase:firebase-annotations:16.0.0@jar,androidx.annotation:annotation-experimental:1.4.0@aar,androidx.annotation:annotation-jvm:1.8.0@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar,com.google.guava:listenablefuture:1.0@jar">
+      roots="com.google.mlkit:face-detection:16.1.7@aar,:@@:google_mlkit_commons::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,com.google.android.gms:play-services-mlkit-face-detection:17.1.0@aar,com.google.mlkit:vision-common:17.3.0@aar,com.google.mlkit:common:18.11.0@aar,com.google.android.datatransport:transport-backend-cct:2.3.3@aar,com.google.android.datatransport:transport-runtime:2.2.6@aar,com.google.android.datatransport:transport-api:2.2.1@aar,com.google.android.gms:play-services-base:18.5.0@aar,com.google.mlkit:vision-interfaces:16.1.0@aar,com.google.android.gms:play-services-tasks:18.2.0@aar,com.google.android.gms:play-services-basement:18.4.0@aar,com.google.firebase:firebase-components:16.1.0@aar,com.google.firebase:firebase-encoders-json:17.1.0@aar,com.google.firebase:firebase-encoders:16.1.0@jar,androidx.appcompat:appcompat-resources:1.6.1@aar,androidx.appcompat:appcompat:1.6.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.activity:activity:1.8.1@aar,androidx.loader:loader:1.0.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.13.1@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.emoji2:emoji2-views-helper:1.2.0@aar,androidx.emoji2:emoji2:1.2.0@aar,androidx.customview:customview:1.0.0@aar,androidx.vectordrawable:vectordrawable-animated:1.1.0@aar,androidx.vectordrawable:vectordrawable:1.1.0@aar,androidx.core:core:1.13.1@aar,androidx.core:core:1.13.1@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.savedstate:savedstate:1.2.1@aar,androidx.lifecycle:lifecycle-common:2.7.0@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar,androidx.profileinstaller:profileinstaller:1.3.1@aar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,androidx.exifinterface:exifinterface:1.0.0@aar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection:1.1.0@jar,androidx.interpolator:interpolator:1.0.0@aar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.resourceinspection:resourceinspection-annotation:1.0.1@jar,androidx.concurrent:concurrent-futures:1.1.0@jar,androidx.window.extensions.core:core:1.0.0@aar,com.getkeepsafe.relinker:relinker:1.4.5@aar,javax.inject:javax.inject:1@jar,com.google.android.odml:image:1.0.0-beta1@aar,com.google.firebase:firebase-annotations:16.0.0@jar,androidx.annotation:annotation-experimental:1.4.0@aar,androidx.annotation:annotation-jvm:1.8.0@jar,org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar,org.jetbrains.kotlin:kotlin-stdlib-common:1.8.22@jar,org.jetbrains:annotations:23.0.0@jar,com.google.guava:listenablefuture:1.0@jar">
     <dependency
-        name="com.google.mlkit:face-detection:16.1.6@aar"
+        name="com.google.mlkit:face-detection:16.1.7@aar"
         simpleName="com.google.mlkit:face-detection"/>
     <dependency
         name=":@@:google_mlkit_commons::release"
@@ -206,7 +206,7 @@
         name="com.google.mlkit:vision-common:17.3.0@aar"
         simpleName="com.google.mlkit:vision-common"/>
     <dependency
-        name="com.google.mlkit:common:18.10.0@aar"
+        name="com.google.mlkit:common:18.11.0@aar"
         simpleName="com.google.mlkit:common"/>
     <dependency
         name="com.google.android.datatransport:transport-backend-cct:2.3.3@aar"
@@ -218,16 +218,16 @@
         name="com.google.android.datatransport:transport-api:2.2.1@aar"
         simpleName="com.google.android.datatransport:transport-api"/>
     <dependency
-        name="com.google.android.gms:play-services-base:18.1.0@aar"
+        name="com.google.android.gms:play-services-base:18.5.0@aar"
         simpleName="com.google.android.gms:play-services-base"/>
     <dependency
         name="com.google.mlkit:vision-interfaces:16.1.0@aar"
         simpleName="com.google.mlkit:vision-interfaces"/>
     <dependency
-        name="com.google.android.gms:play-services-tasks:18.0.2@aar"
+        name="com.google.android.gms:play-services-tasks:18.2.0@aar"
         simpleName="com.google.android.gms:play-services-tasks"/>
     <dependency
-        name="com.google.android.gms:play-services-basement:18.1.0@aar"
+        name="com.google.android.gms:play-services-basement:18.4.0@aar"
         simpleName="com.google.android.gms:play-services-basement"/>
     <dependency
         name="com.google.firebase:firebase-components:16.1.0@aar"
@@ -317,6 +317,18 @@
         name="androidx.lifecycle:lifecycle-common:2.7.0@jar"
         simpleName="androidx.lifecycle:lifecycle-common"/>
     <dependency
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
+        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"/>
+    <dependency
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
+        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-android"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar"
+        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar"
+        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk7"/>
+    <dependency
         name="androidx.profileinstaller:profileinstaller:1.3.1@aar"
         simpleName="androidx.profileinstaller:profileinstaller"/>
     <dependency
@@ -373,18 +385,6 @@
     <dependency
         name="androidx.annotation:annotation-jvm:1.8.0@jar"
         simpleName="androidx.annotation:annotation-jvm"/>
-    <dependency
-        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.1@jar"
-        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"/>
-    <dependency
-        name="org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1@jar"
-        simpleName="org.jetbrains.kotlinx:kotlinx-coroutines-android"/>
-    <dependency
-        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.20@jar"
-        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
-    <dependency
-        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar"
-        simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk7"/>
     <dependency
         name="org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib"/>

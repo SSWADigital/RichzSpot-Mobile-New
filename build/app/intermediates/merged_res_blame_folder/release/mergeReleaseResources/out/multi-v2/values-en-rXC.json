@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.richzspot.app-mergeReleaseResources-55:/values-en-rXC/values-en-rXC.xml",
+            "outputFile": "com.richzspotNewMobile.app-mergeReleaseResources-56:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
                     "source": "/home/jessey/.gradle/caches/8.9/transforms/70c8b275d4c0ba085873261e6cba6a3c/transformed/appcompat-1.6.1/res/values-en-rXC/values-en-rXC.xml",

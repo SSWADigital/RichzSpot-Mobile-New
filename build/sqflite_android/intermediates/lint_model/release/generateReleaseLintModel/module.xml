@@ -1,6 +1,6 @@
 <lint-module
     format="1"
-    dir="/home/jessey/.pub-cache/hosted/pub.dev/sqflite_android-2.4.1/android"
+    dir="/home/jessey/.pub-cache/hosted/pub.dev/sqflite_android-2.4.0/android"
     name=":sqflite_android"
     type="LIBRARY"
     maven="com.tekartik.sqflite:sqflite_android:1.0-SNAPSHOT"

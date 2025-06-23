@@ -1,9 +1,9 @@
 <libraries>
   <library
-      name="com.google.mlkit:face-detection:16.1.6@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/79b78c3425deac615a9c85446cd9df1b/transformed/jetified-face-detection-16.1.6/jars/classes.jar"
-      resolved="com.google.mlkit:face-detection:16.1.6"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/79b78c3425deac615a9c85446cd9df1b/transformed/jetified-face-detection-16.1.6"
+      name="com.google.mlkit:face-detection:16.1.7@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/9f17a380f3c2da5a3cf4fac87b669814/transformed/jetified-face-detection-16.1.7/jars/classes.jar"
+      resolved="com.google.mlkit:face-detection:16.1.7"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/9f17a380f3c2da5a3cf4fac87b669814/transformed/jetified-face-detection-16.1.7"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -14,9 +14,9 @@
       proguardRules="proguard.txt"/>
   <library
       name=":@@:google_mlkit_commons::release"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/62a8e490cf2b195cb2e5a8bb63a5a5e7/transformed/out/jars/classes.jar:/home/jessey/.gradle/caches/8.9/transforms/62a8e490cf2b195cb2e5a8bb63a5a5e7/transformed/out/jars/libs/R.jar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/a03960c84b8d434031d76fc3b12cc935/transformed/out/jars/classes.jar:/home/jessey/.gradle/caches/8.9/transforms/a03960c84b8d434031d76fc3b12cc935/transformed/out/jars/libs/R.jar"
       resolved="com.google_mlkit_commons:google_mlkit_commons:1.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/62a8e490cf2b195cb2e5a8bb63a5a5e7/transformed/out"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/a03960c84b8d434031d76fc3b12cc935/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -56,10 +56,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.mlkit:common:18.10.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/93fce7250e670dbba77cc644a6fa1880/transformed/jetified-common-18.10.0/jars/classes.jar"
-      resolved="com.google.mlkit:common:18.10.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/93fce7250e670dbba77cc644a6fa1880/transformed/jetified-common-18.10.0"
+      name="com.google.mlkit:common:18.11.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/5175af85754eb9628457619b33d91dea/transformed/jetified-common-18.11.0/jars/classes.jar"
+      resolved="com.google.mlkit:common:18.11.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/5175af85754eb9628457619b33d91dea/transformed/jetified-common-18.11.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -138,10 +138,10 @@
       jars="/home/jessey/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-encoders/16.1.0/267565db8531da1483692e27eb58f93ec894c78/firebase-encoders-16.1.0.jar"
       resolved="com.google.firebase:firebase-encoders:16.1.0"/>
   <library
-      name="com.google.android.gms:play-services-base:18.1.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/dc033544bb3b9e698531890f7766547c/transformed/jetified-play-services-base-18.1.0/jars/classes.jar"
-      resolved="com.google.android.gms:play-services-base:18.1.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/dc033544bb3b9e698531890f7766547c/transformed/jetified-play-services-base-18.1.0"
+      name="com.google.android.gms:play-services-base:18.5.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/77466d02270ceb44a7d1f9c00cd6ea69/transformed/jetified-play-services-base-18.5.0/jars/classes.jar"
+      resolved="com.google.android.gms:play-services-base:18.5.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/77466d02270ceb44a7d1f9c00cd6ea69/transformed/jetified-play-services-base-18.5.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -164,10 +164,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.android.gms:play-services-tasks:18.0.2@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/bb7f26a1b46418844d4f54337ae33349/transformed/jetified-play-services-tasks-18.0.2/jars/classes.jar"
-      resolved="com.google.android.gms:play-services-tasks:18.0.2"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/bb7f26a1b46418844d4f54337ae33349/transformed/jetified-play-services-tasks-18.0.2"
+      name="com.google.android.gms:play-services-tasks:18.2.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/8cdd26dda50fb243b9e9a779107451c6/transformed/jetified-play-services-tasks-18.2.0/jars/classes.jar"
+      resolved="com.google.android.gms:play-services-tasks:18.2.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/8cdd26dda50fb243b9e9a779107451c6/transformed/jetified-play-services-tasks-18.2.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -177,10 +177,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.android.gms:play-services-basement:18.1.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/e4d23717babfc51d007ddb2d4a88e1bc/transformed/jetified-play-services-basement-18.1.0/jars/classes.jar"
-      resolved="com.google.android.gms:play-services-basement:18.1.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/e4d23717babfc51d007ddb2d4a88e1bc/transformed/jetified-play-services-basement-18.1.0"
+      name="com.google.android.gms:play-services-basement:18.4.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/8a9f21fa770b6476b550698ceda238ef/transformed/jetified-play-services-basement-18.4.0/jars/classes.jar"
+      resolved="com.google.android.gms:play-services-basement:18.4.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/8a9f21fa770b6476b550698ceda238ef/transformed/jetified-play-services-basement-18.4.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -535,19 +535,6 @@
       jars="/home/jessey/.gradle/caches/modules-2/files-2.1/androidx.annotation/annotation-jvm/1.8.0/b8a16fe526014b7941c1debaccaf9c5153692dbb/annotation-jvm-1.8.0.jar"
       resolved="androidx.annotation:annotation-jvm:1.8.0"/>
   <library
-      name="androidx.window:window:1.2.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/4ccbc7bdf2e257693442d4e35ef5b476/transformed/jetified-window-1.2.0/jars/classes.jar"
-      resolved="androidx.window:window:1.2.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/4ccbc7bdf2e257693442d4e35ef5b476/transformed/jetified-window-1.2.0"
-      manifest="AndroidManifest.xml"
-      resFolder="res"
-      assetsFolder="assets"
-      lintJar="lint.jar"
-      publicResources="public.txt"
-      symbolFile="R.txt"
-      externalAnnotations="annotations.zip"
-      proguardRules="proguard.txt"/>
-  <library
       name="androidx.window:window-java:1.2.0@aar"
       jars="/home/jessey/.gradle/caches/8.9/transforms/81b14da95b5b3eb3e5977d628a5e9bb0/transformed/jetified-window-java-1.2.0/jars/classes.jar"
       resolved="androidx.window:window-java:1.2.0"
@@ -561,10 +548,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="androidx.annotation:annotation-experimental:1.4.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/8dfc815153a8f3152377ed72503d250d/transformed/jetified-annotation-experimental-1.4.0/jars/classes.jar"
-      resolved="androidx.annotation:annotation-experimental:1.4.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/8dfc815153a8f3152377ed72503d250d/transformed/jetified-annotation-experimental-1.4.0"
+      name="androidx.window:window:1.2.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/4ccbc7bdf2e257693442d4e35ef5b476/transformed/jetified-window-1.2.0/jars/classes.jar"
+      resolved="androidx.window:window:1.2.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/4ccbc7bdf2e257693442d4e35ef5b476/transformed/jetified-window-1.2.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -589,6 +576,19 @@
       name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20@jar"
       jars="/home/jessey/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.8.20/3aa51faf20aae8b31e1a4bc54f8370673d7b7df4/kotlin-stdlib-jdk7-1.8.20.jar"
       resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.20"/>
+  <library
+      name="androidx.annotation:annotation-experimental:1.4.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/8dfc815153a8f3152377ed72503d250d/transformed/jetified-annotation-experimental-1.4.0/jars/classes.jar"
+      resolved="androidx.annotation:annotation-experimental:1.4.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/8dfc815153a8f3152377ed72503d250d/transformed/jetified-annotation-experimental-1.4.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
   <library
       name="org.jetbrains.kotlin:kotlin-stdlib:1.8.22@jar"
       jars="/home/jessey/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.8.22/636bf8b320e7627482771bbac9ed7246773c02bd/kotlin-stdlib-1.8.22.jar"

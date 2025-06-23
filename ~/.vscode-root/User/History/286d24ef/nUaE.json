@@ -1,0 +1,10 @@
+{
+    "frosted-glass-theme.fakeMica.enabled": true,
+    "frosted-glass-theme.fakeMica.url": "/usr/share/backgrounds/xfce/xfce-blue.jpg",
+    "workbench.colorCustomizations": {
+        "terminal.background": "#00000000"
+    },
+    "workbench.settings.applyToAllProfiles": [
+        "workbench.colorCustomizations"
+    ]
+}

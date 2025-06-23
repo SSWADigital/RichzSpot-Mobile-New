@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="gcm_defaultSenderId" translatable="false">440995731038</string>
-    <string name="google_api_key" translatable="false">AIzaSyDSVcLtuR8484D1s4Esvo2NLdPyOXL-kqk</string>
-    <string name="google_app_id" translatable="false">1:440995731038:android:3cd80cb460b4f994e546cf</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDSVcLtuR8484D1s4Esvo2NLdPyOXL-kqk</string>
-    <string name="google_storage_bucket" translatable="false">richzspot-mobile.firebasestorage.app</string>
-    <string name="project_id" translatable="false">richzspot-mobile</string>
+    <string name="gcm_defaultSenderId" translatable="false">324674983335</string>
+    <string name="google_api_key" translatable="false">AIzaSyCTmSzs6NOE6O2JLqp68Dbok-b5s9cIFyk</string>
+    <string name="google_app_id" translatable="false">1:324674983335:android:298ae88d68a6daaa7a9282</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCTmSzs6NOE6O2JLqp68Dbok-b5s9cIFyk</string>
+    <string name="google_storage_bucket" translatable="false">richzspotnewmobile.firebasestorage.app</string>
+    <string name="project_id" translatable="false">richzspotnewmobile</string>
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         
         <item name="android:windowBackground">@drawable/launch_background</item>

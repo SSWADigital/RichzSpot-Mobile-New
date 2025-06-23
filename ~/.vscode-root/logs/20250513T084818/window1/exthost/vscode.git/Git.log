@@ -1,0 +1,125 @@
+2025-05-13 08:48:22.204 [info] [main] Log level: Info
+2025-05-13 08:48:22.204 [info] [main] Validating found git in: "git"
+2025-05-13 08:48:22.204 [info] [main] Using git "2.47.2" from "git"
+2025-05-13 08:48:22.204 [info] [Model][doInitialScan] Initial repository scan started
+2025-05-13 08:48:22.204 [info] > git rev-parse --show-toplevel [4ms]
+2025-05-13 08:48:22.204 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.210 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.210 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.216 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.216 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.223 [info] > git rev-parse --show-toplevel [2ms]
+2025-05-13 08:48:22.223 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.229 [info] > git rev-parse --show-toplevel [2ms]
+2025-05-13 08:48:22.229 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.235 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.235 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.241 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.241 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.247 [info] > git rev-parse --show-toplevel [2ms]
+2025-05-13 08:48:22.247 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.253 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.253 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.259 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.259 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.265 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.265 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.270 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:22.272 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:22.274 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (1)
+2025-05-13 08:48:31.121 [info] > git rev-parse --show-toplevel [2ms]
+2025-05-13 08:48:31.121 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:31.789 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:48:31.789 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:48:56.216 [info] > git rev-parse --show-toplevel [3ms]
+2025-05-13 08:48:56.216 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:49:03.559 [info] > git rev-parse --show-toplevel [18ms]
+2025-05-13 08:49:03.559 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:49:04.823 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:49:04.823 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:49:30.808 [info] > git rev-parse --show-toplevel [2ms]
+2025-05-13 08:49:30.808 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:49:30.919 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:49:30.919 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:49:30.968 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:49:30.968 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:49:31.069 [info] > git rev-parse --show-toplevel [2ms]
+2025-05-13 08:49:31.069 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:49:31.752 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:49:31.752 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:50:31.061 [info] > git rev-parse --show-toplevel [1ms]
+2025-05-13 08:50:31.061 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New
+2025-05-13 08:50:32.105 [info] > git rev-parse --show-toplevel [2ms]
+2025-05-13 08:50:32.105 [info] fatal: detected dubious ownership in repository at '/home/jessey/Downloads/App/RichzSpot-Mobile-New'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory /home/jessey/Downloads/App/RichzSpot-Mobile-New

@@ -41,9 +41,9 @@ class _PayslipScreenState extends State<PayslipScreen> {
         _isLoading = false;
       });
       // Optionally show a SnackBar or alert
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(_errorMessage!)),
-      );
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(content: Text(_errorMessage!)),
+      // );
     }
   }
 
@@ -85,7 +85,9 @@ class _PayslipScreenState extends State<PayslipScreen> {
             ),
             Expanded(
               child: _isLoading
-                  ? const Center(child: CircularProgressIndicator())
+                  ? const Center(child: CircularProgressIndicator(
+                    color: AppColors.primary,
+                  ))
                   : _errorMessage != null
                       ? Center(
                           child: Column(

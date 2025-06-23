@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:richzspot/core/constant/app_colors.dart';
+import 'package:richzspot/core/constant/app_routes.dart';
 import 'package:richzspot/feautures/notification/model/notification_model.dart';
 import 'package:richzspot/feautures/notification/service/notification_service.dart';
 import 'package:intl/intl.dart';
@@ -28,7 +29,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     super.initState();
     _fetchNotifications();
     _searchController.addListener(_onSearchChanged);
-     notificationTypeNotifier.addListener(_handleNotificationRefresh);
+    notificationTypeNotifier.addListener(_handleNotificationRefresh);
 
   }
 
@@ -100,23 +101,56 @@ class _NotificationScreenState extends State<NotificationScreen> {
     }
   }
 
-  Future<void> _deleteNotification(int notificationId) async {
+ Future<void> _deleteNotification(int notificationId) async {
+  final deletedNotification = _allNotifications.firstWhere((n) => n.id == notificationId);
+
+  // Hapus sementara dari list
+  setState(() {
+    _allNotifications.removeWhere((n) => n.id == notificationId);
+    _filterNotifications(_filter, _searchController.text);
+  });
+
+  // Tampilkan SnackBar dengan opsi undo
+
+  // Styling untuk SnackBar
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: AppColors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      content: Text('Notification deleted', style: GoogleFonts.inter(
+        textStyle: AppColors.descriptionStyle.copyWith(color: AppColors.textPrimary),
+      )),
+      action: SnackBarAction(
+        label: 'Undo',
+        textColor: AppColors.primaryBlue,
+        onPressed: () {
+          setState(() {
+            _allNotifications.insert(0, deletedNotification); // tambahkan kembali
+            _filterNotifications(_filter, _searchController.text);
+          });
+        },
+      ),
+      duration: const Duration(seconds: 5),
+    ),
+  );
+
+  // Tunggu durasi snackBar sebelum benar-benar delete dari backend
+  await Future.delayed(const Duration(seconds: 5));
+
+  // Jika notifikasi belum di-undo, hapus dari backend
+  if (!_allNotifications.contains(deletedNotification)) {
     final success = await _notificationService.deleteNotification(notificationId);
-    if (success) {
-      setState(() {
-        _allNotifications.removeWhere((n) => n.id == notificationId);
-        _filterNotifications(_filter, _searchController.text); // Re-filter
-      });
-      ShowMessage.successNotification(
-        'Notification deleted successfully',
-        context,
-      );
-    } else {
+    if (!success) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Failed to delete notification')),
       );
+    } else {
+      ShowMessage.successNotification('Notification deleted permanently', context);
     }
   }
+}
 
   String _timeAgo(DateTime dateTime) {
     final now = DateTime.now();
@@ -277,7 +311,23 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 isUnread: !notification.isRead,
                                 onTap: () {
                                   _markAsRead(notification.id);
-                                  print('Tapped notification: ${notification.id}');
+                                  // Handle onTap detail screen on each notification type
+                                  // Navigator.pushNamed(context, AppRoutes.payslip);
+                                  if(notification.body.contains("New leave")) {
+                                    Navigator.pushNamed(context, AppRoutes.leaveApproval);
+                                  } else if (notification.body.contains('leave request')) {
+                                    Navigator.pushNamed(context, AppRoutes.leave);
+                                  } else if (notification.body.contains('New Time Off')) {
+                                    Navigator.pushNamed(context, AppRoutes.timeOffApproval);
+                                  } else if (notification.body.contains('Time Off request')) {
+                                    Navigator.pushNamed(context, AppRoutes.timeOff);
+                                  } else if (notification.body.contains('New overtime')) {
+                                    Navigator.pushNamed(context, AppRoutes.overtimeApproval);
+                                  } else if (notification.body.contains('overtime request')) {
+                                    Navigator.pushNamed(context, AppRoutes.overtime);
+                                  } else if (notification.body.contains('Gaji')) {
+                                    Navigator.pushNamed(context, AppRoutes.payslip);
+                                  }
                                 },
                               ),
                             );

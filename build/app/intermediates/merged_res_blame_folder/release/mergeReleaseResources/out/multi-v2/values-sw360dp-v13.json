@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.richzspot.app-mergeReleaseResources-55:/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "outputFile": "com.richzspotNewMobile.app-mergeReleaseResources-56:/values-sw360dp-v13/values-sw360dp-v13.xml",
             "map": [
                 {
                     "source": "/home/jessey/.gradle/caches/8.9/transforms/4d8138a0ffec667122c47b8efbfa37fd/transformed/preference-1.2.1/res/values-sw360dp-v13/values-sw360dp-v13.xml",

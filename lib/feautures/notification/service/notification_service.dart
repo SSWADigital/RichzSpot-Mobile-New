@@ -99,8 +99,6 @@ class NotificationService {
   // Setup background message handler
   static Future<void> backgroundMessageHandler(RemoteMessage message) async {
     print('Background message received: ${message.notification?.title}');
-    // Anda tidak dapat menampilkan UI atau melakukan navigasi di sini
-    // Handler ini untuk pemrosesan data di background
   }
 
 Future<bool> sendFcmNotificationV1({
@@ -109,10 +107,10 @@ Future<bool> sendFcmNotificationV1({
   required String title,
   required String body,
   String? recipientToken,
-  String? type, // Tambahkan parameter untuk jenis notifikasi (misalnya, 'pengajuan', 'pengumuman')
-  String? action, // Tambahkan parameter untuk tindakan (misalnya, 'approve', 'reject')
-  String? menu, // Tambahkan parameter untuk menu terkait (misalnya, 'pengajuan_detail', 'pengumuman_detail')
-  Map<String, dynamic>? additionalData, // Tambahkan parameter untuk data tambahan yang spesifik
+  String? type,
+  String? action,
+  String? menu,
+  Map<String, dynamic>? additionalData,
 }) async {
   final authToken = await AppStorage.getToken();
   final user = await AppStorage.getUser();

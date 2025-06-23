@@ -8,6 +8,7 @@ class AppStorage {
   static const _keyFCMDeviceToken = 'fcm_device_token';
   static const _keyPlatform = 'platform';
   static const _keyFCMServerToken = 'fcm_server_token';
+  static const _keyRefresh = 'refresh_token';
 
   static Future<void> saveUser(Map<String, dynamic> userData) async {
     final prefs = await SharedPreferences.getInstance();
@@ -15,8 +16,9 @@ class AppStorage {
   }
 
   /// Save login token and user info
-  static Future<void> saveLoginData(String token, Map<String, dynamic> user) async {
+  static Future<void> saveLoginData(String token, String refreshToken,Map<String, dynamic> user) async {
     final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keyRefresh, refreshToken);
     await prefs.setString(_keyToken, token);
     await prefs.setString(_keyUser, json.encode(user));
     await prefs.setString(_keyFaceToken, user['face_token'] ?? '');
@@ -27,6 +29,11 @@ class AppStorage {
   static Future<String?> getToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyToken);
+  }
+
+  static Future<void> setFaceToken(String token) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keyFaceToken, token);
   }
 
   /// Get saved face token
@@ -89,6 +96,25 @@ class AppStorage {
     final token = await getToken();
     return token != null && token.isNotEmpty;
   }
+
+  static getRefreshToken() {
+    // Implementasi untuk mendapatkan refresh token
+    // Misalnya, jika refresh token disimpan dengan kunci tertentu
+    final prefs = SharedPreferences.getInstance();
+    return prefs.then((value) => value.getString('refresh_token'));
+  }
+
+  static Future<void> saveTokens(String token, String refreshToken) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keyToken, token);
+    await prefs.setString('refresh_token', refreshToken);
+  }
+
+  // Set Refresh Token
+  // static Future<void> setRefreshToken(String refreshToken) async {
+  //   final prefs = await SharedPreferences.getInstance();
+  //   await prefs.setString('refresh_token', refreshToken);
+  // }
 
 
 }

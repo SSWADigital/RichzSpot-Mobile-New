@@ -15,7 +15,7 @@ class AnnouncementService {
 
     final response = await http.get(url, headers: headers);
 
-    print("Announcement: ${response.body}");
+    // print("Announcement: ${response.body}");
 
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body);

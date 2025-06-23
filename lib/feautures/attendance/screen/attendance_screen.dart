@@ -127,6 +127,19 @@ class _AttendanceHistoryScreenState extends State<AttendanceHistoryScreen> {
       firstDate: DateTime(DateTime.now().year - 1),
       lastDate: DateTime.now(),
       initialDateRange: _startDate != null && _endDate != null ? DateTimeRange(start: _startDate!, end: _endDate!) : null,
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: const Color(0xFF2D5FDA),
+            colorScheme: ColorScheme.light(
+              primary: const Color(0xFF2D5FDA),
+              secondary: const Color(0xFF2D5FDA),
+            ),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child ?? const SizedBox.shrink(),
+        );
+      },
     );
 
     if (picked != null) {

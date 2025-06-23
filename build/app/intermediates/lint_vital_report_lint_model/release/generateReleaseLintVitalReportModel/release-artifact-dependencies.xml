@@ -1,6 +1,6 @@
 <dependencies>
   <compile
-      roots="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar:unspecified@jar,:@@:camera_android_camerax::release,:@@:shared_preferences_android::release,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar,:@@:firebase_messaging::release,:@@:firebase_core::release,:@@:flutter_local_notifications::release,:@@:flutter_plugin_android_lifecycle::release,:@@:geolocator_android::release,:@@:google_mlkit_commons::release,:@@:google_mlkit_face_detection::release,:@@:image_picker_android::release,:@@:open_filex::release,:@@:path_provider_android::release,:@@:permission_handler_android::release,:@@:sqflite_android::release,:@@:url_launcher_android::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.9.3@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.16.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.customview:customview:1.1.0@aar,androidx.core:core:1.16.0@aar,androidx.core:core:1.16.0@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.annotation:annotation-experimental:1.4.1@aar,androidx.savedstate:savedstate:1.2.1@aar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection-jvm:1.4.2@jar,androidx.annotation:annotation-jvm:1.9.1@jar,androidx.core:core-viewtree:1.0.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3@jar,org.jetbrains.kotlin:kotlin-stdlib:1.9.24@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar,io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:arm64_v8a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:x86_64_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,org.jetbrains:annotations:23.0.0@jar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,org.jspecify:jspecify:1.0.0@jar,com.getkeepsafe.relinker:relinker:1.4.5@aar">
+      roots="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar:unspecified@jar,:@@:camera_android_camerax::release,:@@:shared_preferences_android::release,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar,:@@:firebase_messaging::release,:@@:firebase_core::release,:@@:flutter_local_notifications::release,:@@:flutter_plugin_android_lifecycle::release,:@@:fluttertoast::release,:@@:geolocator_android::release,:@@:google_mlkit_commons::release,:@@:google_mlkit_face_detection::release,:@@:image_picker_android::release,:@@:in_app_update::release,:@@:open_filex::release,:@@:path_provider_android::release,:@@:permission_handler_android::release,:@@:sqflite_android::release,:@@:url_launcher_android::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.9.3@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,androidx.core:core-ktx:1.16.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.customview:customview:1.1.0@aar,androidx.core:core:1.16.0@aar,androidx.core:core:1.16.0@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.lifecycle:lifecycle-common:2.7.0@jar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.annotation:annotation-experimental:1.4.1@aar,androidx.savedstate:savedstate:1.2.1@aar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,androidx.collection:collection-jvm:1.4.2@jar,androidx.annotation:annotation-jvm:1.9.1@jar,androidx.core:core-viewtree:1.0.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3@jar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3@jar,org.jetbrains.kotlin:kotlin-stdlib:1.9.24@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar,androidx.multidex:multidex:2.0.1@aar,io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:arm64_v8a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:x86_64_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,org.jetbrains:annotations:23.0.0@jar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,org.jspecify:jspecify:1.0.0@jar,com.getkeepsafe.relinker:relinker:1.4.5@aar">
     <dependency
         name="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar:unspecified@jar"
         simpleName="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar"/>
@@ -26,6 +26,9 @@
         name=":@@:flutter_plugin_android_lifecycle::release"
         simpleName="artifacts::flutter_plugin_android_lifecycle"/>
     <dependency
+        name=":@@:fluttertoast::release"
+        simpleName="artifacts::fluttertoast"/>
+    <dependency
         name=":@@:geolocator_android::release"
         simpleName="artifacts::geolocator_android"/>
     <dependency
@@ -37,6 +40,9 @@
     <dependency
         name=":@@:image_picker_android::release"
         simpleName="artifacts::image_picker_android"/>
+    <dependency
+        name=":@@:in_app_update::release"
+        simpleName="artifacts::in_app_update"/>
     <dependency
         name=":@@:open_filex::release"
         simpleName="artifacts::open_filex"/>
@@ -146,6 +152,9 @@
         name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
     <dependency
+        name="androidx.multidex:multidex:2.0.1@aar"
+        simpleName="androidx.multidex:multidex"/>
+    <dependency
         name="io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar"
         simpleName="io.flutter:armeabi_v7a_release"/>
     <dependency
@@ -171,7 +180,7 @@
         simpleName="com.getkeepsafe.relinker:relinker"/>
   </compile>
   <package
-      roots="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar:unspecified@jar,:@@:camera_android_camerax::release,:@@:shared_preferences_android::release,androidx.camera:camera-video:1.4.1@aar,androidx.camera:camera-lifecycle:1.4.1@aar,androidx.camera:camera-camera2:1.4.1@aar,androidx.camera:camera-core:1.4.1@aar,:@@:geolocator_android::release,com.google.android.gms:play-services-location:21.2.0@aar,:@@:firebase_messaging::release,:@@:firebase_core::release,:@@:flutter_local_notifications::release,:@@:image_picker_android::release,:@@:flutter_plugin_android_lifecycle::release,:@@:google_mlkit_face_detection::release,:@@:google_mlkit_commons::release,:@@:open_filex::release,:@@:path_provider_android::release,:@@:permission_handler_android::release,:@@:sqflite_android::release,:@@:url_launcher_android::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,androidx.media:media:1.1.0@aar,androidx.preference:preference:1.2.1@aar,com.google.mlkit:face-detection:16.1.6@aar,com.google.android.gms:play-services-mlkit-face-detection:17.1.0@aar,com.google.mlkit:vision-common:17.3.0@aar,com.google.mlkit:common:18.10.0@aar,androidx.appcompat:appcompat-resources:1.6.1@aar,androidx.appcompat:appcompat:1.6.1@aar,androidx.appcompat:appcompat:1.6.1@aar,com.google.firebase:firebase-messaging:24.1.1@aar,com.google.android.gms:play-services-base:18.3.0@aar,com.google.firebase:firebase-installations:18.0.0@aar,com.google.firebase:firebase-common-ktx:21.0.0@aar,com.google.firebase:firebase-common:21.0.0@aar,com.google.firebase:firebase-iid-interop:17.1.0@aar,com.google.android.gms:play-services-cloud-messaging:17.2.0@aar,com.google.mlkit:vision-interfaces:16.1.0@aar,androidx.concurrent:concurrent-futures-ktx:1.1.0@jar,androidx.recyclerview:recyclerview:1.0.0@aar,androidx.legacy:legacy-support-core-ui:1.0.0@aar,androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar,androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.datastore:datastore-preferences-external-protobuf:1.1.3@jar,androidx.datastore:datastore-preferences-proto:1.1.3@jar,androidx.datastore:datastore-preferences-core-jvm:1.1.3@jar,androidx.datastore:datastore-core-okio-jvm:1.1.3@jar,androidx.datastore:datastore-core-android:1.1.3@aar,androidx.datastore:datastore-preferences-android:1.1.3@aar,androidx.datastore:datastore-android:1.1.3@aar,androidx.fragment:fragment-ktx:1.7.1@aar,androidx.activity:activity-ktx:1.9.3@aar,androidx.lifecycle:lifecycle-runtime-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,com.google.android.gms:play-services-stats:17.0.2@aar,androidx.legacy:legacy-support-core-utils:1.0.0@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3@jar,org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3@jar,com.google.firebase:firebase-installations-interop:17.1.1@aar,com.google.android.gms:play-services-tasks:18.1.0@aar,com.google.firebase:firebase-measurement-connector:19.0.0@aar,com.google.android.gms:play-services-basement:18.3.0@aar,androidx.fragment:fragment:1.7.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.9.3@aar,androidx.browser:browser:1.8.0@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.emoji2:emoji2-views-helper:1.2.0@aar,androidx.emoji2:emoji2:1.2.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.core:core-ktx:1.16.0@aar,androidx.vectordrawable:vectordrawable-animated:1.1.0@aar,androidx.vectordrawable:vectordrawable:1.1.0@aar,androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar,androidx.customview:customview:1.1.0@aar,androidx.transition:transition:1.4.1@aar,androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar,androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar,androidx.core:core:1.16.0@aar,androidx.core:core:1.16.0@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.savedstate:savedstate-ktx:1.2.1@aar,androidx.savedstate:savedstate:1.2.1@aar,androidx.lifecycle:lifecycle-common:2.7.0@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar,androidx.annotation:annotation-experimental:1.4.1@aar,androidx.profileinstaller:profileinstaller:1.3.1@aar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,androidx.tracing:tracing-ktx:1.2.0@aar,androidx.localbroadcastmanager:localbroadcastmanager:1.1.0@aar,androidx.localbroadcastmanager:localbroadcastmanager:1.1.0@aar,androidx.exifinterface:exifinterface:1.3.7@aar,androidx.exifinterface:exifinterface:1.3.7@aar,androidx.concurrent:concurrent-futures:1.1.0@jar,androidx.interpolator:interpolator:1.0.0@aar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,com.google.firebase:firebase-datatransport:18.2.0@aar,com.google.android.datatransport:transport-backend-cct:3.1.9@aar,com.google.firebase:firebase-encoders-json:18.0.0@aar,com.google.android.datatransport:transport-runtime:3.1.9@aar,com.google.firebase:firebase-encoders-proto:16.0.0@jar,com.google.firebase:firebase-encoders:17.0.0@jar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.resourceinspection:resourceinspection-annotation:1.0.1@jar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,com.google.firebase:firebase-components:18.0.0@aar,com.google.android.datatransport:transport-api:3.1.0@aar,androidx.collection:collection-ktx:1.4.2@jar,androidx.collection:collection-jvm:1.4.2@jar,androidx.window.extensions.core:core:1.0.0@aar,androidx.documentfile:documentfile:1.0.0@aar,androidx.print:print:1.0.0@aar,androidx.annotation:annotation-jvm:1.9.1@jar,androidx.core:core-viewtree:1.0.0@aar,org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.22@jar,org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.9.22@jar,org.jetbrains.kotlin:kotlin-stdlib:1.9.24@jar,com.squareup.okio:okio-jvm:3.4.0@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar,io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:arm64_v8a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:x86_64_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,com.google.guava:guava:33.4.0-android@jar,com.google.code.gson:gson:2.8.9@jar,org.jetbrains:annotations:23.0.0@jar,com.google.auto.value:auto-value-annotations:1.6.3@jar,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar,com.google.guava:failureaccess:1.0.2@jar,com.google.code.findbugs:jsr305:3.0.2@jar,org.checkerframework:checker-qual:3.43.0@jar,com.google.errorprone:error_prone_annotations:2.36.0@jar,com.google.j2objc:j2objc-annotations:3.0.0@jar,com.getkeepsafe.relinker:relinker:1.4.5@aar,org.jspecify:jspecify:1.0.0@jar,com.google.android.odml:image:1.0.0-beta1@aar,com.google.firebase:firebase-annotations:16.2.0@jar,javax.inject:javax.inject:1@jar">
+      roots="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar:unspecified@jar,:@@:camera_android_camerax::release,:@@:shared_preferences_android::release,androidx.camera:camera-video:1.4.1@aar,androidx.camera:camera-lifecycle:1.4.1@aar,androidx.camera:camera-camera2:1.4.1@aar,androidx.camera:camera-core:1.4.1@aar,:@@:geolocator_android::release,com.google.android.gms:play-services-location:21.2.0@aar,:@@:in_app_update::release,com.google.android.play:app-update-ktx:2.1.0@aar,:@@:firebase_messaging::release,:@@:firebase_core::release,:@@:flutter_local_notifications::release,:@@:image_picker_android::release,:@@:flutter_plugin_android_lifecycle::release,:@@:fluttertoast::release,:@@:google_mlkit_face_detection::release,:@@:google_mlkit_commons::release,:@@:open_filex::release,:@@:path_provider_android::release,:@@:permission_handler_android::release,:@@:sqflite_android::release,:@@:url_launcher_android::release,io.flutter:flutter_embedding_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,androidx.media:media:1.1.0@aar,androidx.preference:preference:1.2.1@aar,com.google.mlkit:face-detection:16.1.7@aar,com.google.android.gms:play-services-mlkit-face-detection:17.1.0@aar,com.google.mlkit:vision-common:17.3.0@aar,com.google.mlkit:common:18.11.0@aar,androidx.appcompat:appcompat-resources:1.6.1@aar,androidx.appcompat:appcompat:1.6.1@aar,androidx.appcompat:appcompat:1.6.1@aar,com.google.firebase:firebase-messaging:24.1.1@aar,com.google.android.gms:play-services-base:18.5.0@aar,com.google.android.play:app-update:2.1.0@aar,com.google.firebase:firebase-installations:18.0.0@aar,com.google.firebase:firebase-common-ktx:21.0.0@aar,com.google.firebase:firebase-common:21.0.0@aar,com.google.firebase:firebase-iid-interop:17.1.0@aar,com.google.android.gms:play-services-cloud-messaging:17.2.0@aar,com.google.mlkit:vision-interfaces:16.1.0@aar,androidx.concurrent:concurrent-futures-ktx:1.1.0@jar,androidx.recyclerview:recyclerview:1.0.0@aar,androidx.legacy:legacy-support-core-ui:1.0.0@aar,androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar,androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar,androidx.window:window:1.2.0@aar,androidx.window:window-java:1.2.0@aar,androidx.datastore:datastore-preferences-external-protobuf:1.1.3@jar,androidx.datastore:datastore-preferences-proto:1.1.3@jar,androidx.datastore:datastore-preferences-core-jvm:1.1.3@jar,androidx.datastore:datastore-core-okio-jvm:1.1.3@jar,androidx.datastore:datastore-core-android:1.1.3@aar,androidx.datastore:datastore-preferences-android:1.1.3@aar,androidx.datastore:datastore-android:1.1.3@aar,androidx.fragment:fragment-ktx:1.7.1@aar,androidx.activity:activity-ktx:1.9.3@aar,androidx.lifecycle:lifecycle-runtime-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0@aar,androidx.lifecycle:lifecycle-livedata-core:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0@aar,com.google.android.gms:play-services-stats:17.0.2@aar,androidx.legacy:legacy-support-core-utils:1.0.0@aar,androidx.loader:loader:1.0.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-viewmodel:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,androidx.lifecycle:lifecycle-livedata:2.7.0@aar,org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3@jar,org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3@jar,com.google.firebase:firebase-installations-interop:17.1.1@aar,com.google.android.gms:play-services-tasks:18.2.0@aar,com.google.firebase:firebase-measurement-connector:19.0.0@aar,com.google.android.gms:play-services-basement:18.4.0@aar,androidx.fragment:fragment:1.7.1@aar,androidx.fragment:fragment:1.7.1@aar,androidx.activity:activity:1.9.3@aar,androidx.browser:browser:1.8.0@aar,androidx.drawerlayout:drawerlayout:1.0.0@aar,androidx.emoji2:emoji2-views-helper:1.2.0@aar,androidx.emoji2:emoji2:1.2.0@aar,androidx.viewpager:viewpager:1.0.0@aar,androidx.core:core-ktx:1.16.0@aar,androidx.vectordrawable:vectordrawable-animated:1.1.0@aar,androidx.vectordrawable:vectordrawable:1.1.0@aar,androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar,androidx.customview:customview:1.1.0@aar,androidx.transition:transition:1.4.1@aar,androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar,androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar,androidx.core:core:1.16.0@aar,androidx.core:core:1.16.0@aar,androidx.lifecycle:lifecycle-runtime:2.7.0@aar,androidx.lifecycle:lifecycle-process:2.7.0@aar,androidx.lifecycle:lifecycle-common-java8:2.7.0@jar,androidx.savedstate:savedstate-ktx:1.2.1@aar,androidx.savedstate:savedstate:1.2.1@aar,androidx.lifecycle:lifecycle-common:2.7.0@jar,org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22@jar,androidx.annotation:annotation-experimental:1.4.1@aar,androidx.profileinstaller:profileinstaller:1.3.1@aar,androidx.startup:startup-runtime:1.1.1@aar,androidx.tracing:tracing:1.2.0@aar,androidx.tracing:tracing-ktx:1.2.0@aar,androidx.localbroadcastmanager:localbroadcastmanager:1.1.0@aar,androidx.localbroadcastmanager:localbroadcastmanager:1.1.0@aar,androidx.exifinterface:exifinterface:1.3.7@aar,androidx.exifinterface:exifinterface:1.3.7@aar,androidx.concurrent:concurrent-futures:1.1.0@jar,androidx.interpolator:interpolator:1.0.0@aar,androidx.versionedparcelable:versionedparcelable:1.1.1@aar,com.google.firebase:firebase-datatransport:18.2.0@aar,com.google.android.datatransport:transport-backend-cct:3.1.9@aar,com.google.firebase:firebase-encoders-json:18.0.0@aar,com.google.android.datatransport:transport-runtime:3.1.9@aar,com.google.firebase:firebase-encoders-proto:16.0.0@jar,com.google.firebase:firebase-encoders:17.0.0@jar,androidx.cursoradapter:cursoradapter:1.0.0@aar,androidx.resourceinspection:resourceinspection-annotation:1.0.1@jar,androidx.arch.core:core-runtime:2.2.0@aar,androidx.arch.core:core-common:2.2.0@jar,com.google.firebase:firebase-components:18.0.0@aar,com.google.android.datatransport:transport-api:3.1.0@aar,androidx.collection:collection-ktx:1.4.2@jar,androidx.collection:collection-jvm:1.4.2@jar,androidx.window.extensions.core:core:1.0.0@aar,androidx.documentfile:documentfile:1.0.0@aar,androidx.print:print:1.0.0@aar,androidx.annotation:annotation-jvm:1.9.1@jar,androidx.core:core-viewtree:1.0.0@aar,org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.22@jar,org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.9.22@jar,org.jetbrains.kotlin:kotlin-stdlib:1.9.24@jar,com.squareup.okio:okio-jvm:3.4.0@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar,androidx.multidex:multidex:2.0.1@aar,io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:arm64_v8a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,io.flutter:x86_64_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar,com.google.guava:guava:33.4.0-android@jar,com.google.code.gson:gson:2.8.9@jar,org.jetbrains:annotations:23.0.0@jar,com.google.auto.value:auto-value-annotations:1.6.3@jar,com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava@jar,com.google.guava:failureaccess:1.0.2@jar,com.google.code.findbugs:jsr305:3.0.2@jar,org.checkerframework:checker-qual:3.43.0@jar,com.google.errorprone:error_prone_annotations:2.36.0@jar,com.google.j2objc:j2objc-annotations:3.0.0@jar,com.getkeepsafe.relinker:relinker:1.4.5@aar,org.jspecify:jspecify:1.0.0@jar,com.google.android.odml:image:1.0.0-beta1@aar,com.google.android.play:core-common:2.0.3@aar,com.google.firebase:firebase-annotations:16.2.0@jar,javax.inject:javax.inject:1@jar">
     <dependency
         name="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar:unspecified@jar"
         simpleName="__local_aars__:/home/jessey/Development/App/RichzSpot-Mobile-New/build/app/intermediates/flutter/release/libs.jar"/>
@@ -200,6 +209,12 @@
         name="com.google.android.gms:play-services-location:21.2.0@aar"
         simpleName="com.google.android.gms:play-services-location"/>
     <dependency
+        name=":@@:in_app_update::release"
+        simpleName="artifacts::in_app_update"/>
+    <dependency
+        name="com.google.android.play:app-update-ktx:2.1.0@aar"
+        simpleName="com.google.android.play:app-update-ktx"/>
+    <dependency
         name=":@@:firebase_messaging::release"
         simpleName="artifacts::firebase_messaging"/>
     <dependency
@@ -214,6 +229,9 @@
     <dependency
         name=":@@:flutter_plugin_android_lifecycle::release"
         simpleName="artifacts::flutter_plugin_android_lifecycle"/>
+    <dependency
+        name=":@@:fluttertoast::release"
+        simpleName="artifacts::fluttertoast"/>
     <dependency
         name=":@@:google_mlkit_face_detection::release"
         simpleName="artifacts::google_mlkit_face_detection"/>
@@ -245,7 +263,7 @@
         name="androidx.preference:preference:1.2.1@aar"
         simpleName="androidx.preference:preference"/>
     <dependency
-        name="com.google.mlkit:face-detection:16.1.6@aar"
+        name="com.google.mlkit:face-detection:16.1.7@aar"
         simpleName="com.google.mlkit:face-detection"/>
     <dependency
         name="com.google.android.gms:play-services-mlkit-face-detection:17.1.0@aar"
@@ -254,7 +272,7 @@
         name="com.google.mlkit:vision-common:17.3.0@aar"
         simpleName="com.google.mlkit:vision-common"/>
     <dependency
-        name="com.google.mlkit:common:18.10.0@aar"
+        name="com.google.mlkit:common:18.11.0@aar"
         simpleName="com.google.mlkit:common"/>
     <dependency
         name="androidx.appcompat:appcompat-resources:1.6.1@aar"
@@ -266,8 +284,11 @@
         name="com.google.firebase:firebase-messaging:24.1.1@aar"
         simpleName="com.google.firebase:firebase-messaging"/>
     <dependency
-        name="com.google.android.gms:play-services-base:18.3.0@aar"
+        name="com.google.android.gms:play-services-base:18.5.0@aar"
         simpleName="com.google.android.gms:play-services-base"/>
+    <dependency
+        name="com.google.android.play:app-update:2.1.0@aar"
+        simpleName="com.google.android.play:app-update"/>
     <dependency
         name="com.google.firebase:firebase-installations:18.0.0@aar"
         simpleName="com.google.firebase:firebase-installations"/>
@@ -371,13 +392,13 @@
         name="com.google.firebase:firebase-installations-interop:17.1.1@aar"
         simpleName="com.google.firebase:firebase-installations-interop"/>
     <dependency
-        name="com.google.android.gms:play-services-tasks:18.1.0@aar"
+        name="com.google.android.gms:play-services-tasks:18.2.0@aar"
         simpleName="com.google.android.gms:play-services-tasks"/>
     <dependency
         name="com.google.firebase:firebase-measurement-connector:19.0.0@aar"
         simpleName="com.google.firebase:firebase-measurement-connector"/>
     <dependency
-        name="com.google.android.gms:play-services-basement:18.3.0@aar"
+        name="com.google.android.gms:play-services-basement:18.4.0@aar"
         simpleName="com.google.android.gms:play-services-basement"/>
     <dependency
         name="androidx.fragment:fragment:1.7.1@aar"
@@ -554,6 +575,9 @@
         name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22@jar"
         simpleName="org.jetbrains.kotlin:kotlin-stdlib-jdk8"/>
     <dependency
+        name="androidx.multidex:multidex:2.0.1@aar"
+        simpleName="androidx.multidex:multidex"/>
+    <dependency
         name="io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar"
         simpleName="io.flutter:armeabi_v7a_release"/>
     <dependency
@@ -601,6 +625,9 @@
     <dependency
         name="com.google.android.odml:image:1.0.0-beta1@aar"
         simpleName="com.google.android.odml:image"/>
+    <dependency
+        name="com.google.android.play:core-common:2.0.3@aar"
+        simpleName="com.google.android.play:core-common"/>
     <dependency
         name="com.google.firebase:firebase-annotations:16.2.0@jar"
         simpleName="com.google.firebase:firebase-annotations"/>

@@ -1,9 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:overlay_support/overlay_support.dart';
 import 'package:richzspot/core/constant/app_colors.dart';
+import 'package:richzspot/fcmserverkey.dart';
 import 'package:richzspot/feautures/face_recognation/face_recognation.dart';
 import 'package:richzspot/feautures/home/home.dart';
 import 'package:richzspot/feautures/notification/screen/notification_screen.dart';
@@ -11,7 +15,10 @@ import 'package:richzspot/feautures/notification/service/notification_service.da
 import 'package:richzspot/feautures/profile/profile_screen.dart';
 import 'package:richzspot/feautures/schedule/screen/schedule_screen.dart';
 import 'package:richzspot/main.dart';
+import 'package:fluttertoast/fluttertoast.dart' as flutter_toast;
+import 'package:in_app_update/in_app_update.dart';
 
+final Completer<NavigatorState> navigatorStateCompleter = Completer<NavigatorState>();
 class AppScreen extends StatefulWidget {
   const AppScreen({super.key});
 
@@ -24,6 +31,53 @@ class _AppScreenState extends State<AppScreen> {
   final _notificationService = NotificationService();
   List<dynamic> _allNotifications = [];
   int _unreadNotificationCount = 0;
+  DateTime? _lastBackPressed;
+  final Completer<void> _updateCheckCompleter = Completer<void>();
+
+   Future<void> _checkForUpdate() async {
+    try {
+      final AppUpdateInfo updateInfo = await InAppUpdate.checkForUpdate();
+
+      if (updateInfo.updateAvailability == UpdateAvailability.updateAvailable) {
+        // Update is available
+        if (updateInfo.immediateUpdateAllowed) {
+          // Perform an immediate update (user must update to proceed)
+          print('Immediate update available. Starting update...');
+          await InAppUpdate.performImmediateUpdate();
+        } else if (updateInfo.flexibleUpdateAllowed) {
+          // Perform a flexible update (user can choose to update later)
+          print('Flexible update available. Starting flexible update...');
+          await InAppUpdate.startFlexibleUpdate();
+          // Listen for flexible update completion
+          InAppUpdate.completeFlexibleUpdate().then((_) {
+            print('Flexible update downloaded and installed!');
+            showSimpleNotification(
+              const Text("Update Selesai! Aplikasi akan restart."),
+              background: AppColors.primary,
+              position: NotificationPosition.bottom,
+            );
+          }).catchError((e) {
+            print('Failed to complete flexible update: $e');
+            showSimpleNotification(
+              Text("Gagal menginstal update: $e"),
+              background: Colors.red,
+              position: NotificationPosition.bottom,
+            );
+          });
+        }
+      } else {
+        print('No update available.');
+      }
+    } catch (e) {
+      print('Failed to check for updates: $e');
+      // Handle error (e.g., show a toast message)
+      showSimpleNotification(
+        Text("Gagal memeriksa update: $e"),
+        background: Colors.orange,
+        position: NotificationPosition.bottom,
+      );
+    }
+  }
 
   Future<void> _fetchNotifications() async {
    
@@ -106,10 +160,19 @@ class _AppScreenState extends State<AppScreen> {
     super.dispose();
   }
 
+  
+
   @override
   void initState() {
     super.initState();
+
+    // Future.delayed(const Duration(seconds: 2), () {
+    //   _checkForUpdate();
+    //   _updateCheckCompleter.complete();
+    // });
+
     notificationTypeNotifier.removeListener(_handleNotificationRefresh);
+    // _getFcmAccessToken();
 
     _fetchNotifications();
     // _setupForegroundMessageListener();
@@ -118,8 +181,25 @@ class _AppScreenState extends State<AppScreen> {
 
   void _handleNotificationRefresh() {
     setState(() {
+    print('AppScreen initialized');
+
       _fetchNotifications();
     });
+  }
+
+   Future<void> _getFcmAccessToken() async {
+    print("Memulai proses untuk mendapatkan FCM Access Token...");
+    final fcmService = GetFcmServerKey();
+    final token = await fcmService.serverToken();
+    
+    if (token != null) {
+      print("FCM Access Token berhasil didapatkan di initState.");
+      print("FCM Access Token: $token");
+      // Anda bisa menyimpan token ini di state atau service lain jika perlu,
+      // tapi ingat, ini hanya berlaku sekitar 1 jam.
+    } else {
+      print("Gagal mendapatkan FCM Access Token di initState.");
+    }
   }
 
   
@@ -135,13 +215,49 @@ class _AppScreenState extends State<AppScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: _pages[_currentIndex],
-        bottomNavigationBar: _buildBottomNavigation(),
+    // --- AWAL PERUBAHAN: Bungkus Scaffold dengan PopScope ---
+    return PopScope(
+      // canPop: false berarti kita akan menangani tombol kembali secara manual
+      canPop: false,
+      // onPopInvoked akan dipanggil setiap kali ada upaya untuk "pop" (kembali)
+      onPopInvoked: (bool didPop) {
+        if (didPop) {
+          return;
+        }
+
+        final now = DateTime.now();
+        // Cek jika tombol kembali belum pernah ditekan, atau
+        // jika jeda antara tekanan pertama dan kedua lebih dari 2 detik
+        if (_lastBackPressed == null ||
+            now.difference(_lastBackPressed!) > const Duration(seconds: 2)) {
+          
+          // Simpan waktu tekanan pertama
+          _lastBackPressed = now;
+
+          // Tampilkan toast
+          flutter_toast.Fluttertoast.showToast(
+            msg: "Tekan sekali lagi untuk keluar",
+            toastLength: flutter_toast.Toast.LENGTH_SHORT,
+            gravity: flutter_toast.ToastGravity.BOTTOM,
+            backgroundColor: Colors.black.withOpacity(0.7),
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
+        } else {
+          // Jika tekanan kedua terjadi dalam 2 detik, tutup aplikasi
+          flutter_toast.Fluttertoast.cancel(); // Batalkan toast yang mungkin masih muncul
+          SystemNavigator.pop(); // Keluar dari aplikasi
+        }
+      },
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          body: _pages[_currentIndex],
+          bottomNavigationBar: _buildBottomNavigation(),
+        ),
       ),
     );
+    // --- AKHIR PERUBAHAN ---
   }
 
   Widget _buildBottomNavigation() {

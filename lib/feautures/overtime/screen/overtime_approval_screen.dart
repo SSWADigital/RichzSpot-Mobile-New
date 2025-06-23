@@ -54,8 +54,9 @@ class _OvertimeApprovalScreenState extends State<OvertimeApprovalScreen> {
           _isLoading = false;
         });
       } else {
+        final Map<String, dynamic> errorData = jsonDecode(response.body);
         setState(() {
-          _errorMessage = 'Failed to load overtime requests. Status code: ${response.statusCode}';
+          _errorMessage = '${errorData['message']}';
           _isLoading = false;
         });
       }
@@ -76,6 +77,7 @@ class _OvertimeApprovalScreenState extends State<OvertimeApprovalScreen> {
     final String apiUrl = '${_baseUrl}lembur/${action}Lembur';
     final prefs = await AppStorage.getUser();
     final userId = prefs?['user_id']; // Replace with actual user ID
+    final userName = prefs?['user_nama_lengkap']; // Replace with actual user name
     try {
       final response = await http.post(
         Uri.parse(apiUrl),
@@ -99,12 +101,12 @@ class _OvertimeApprovalScreenState extends State<OvertimeApprovalScreen> {
           recipientUserId: recipientUserId,
           userId: userId,
           title: 'Overtime Request ${action == 'approve' ? 'Approved' : 'Rejected'}',
-          body: 'Your overtime request has been ${action == 'approve' ? 'approved' : 'rejected'}.',
+          body: '$userName overtime request has been ${action == 'approve' ? 'approved' : 'rejected'}.',
           type: 'overtime_approve',
           action: action,
           menu: 'overtime_approve',
         );
-        // return;  
+        //x return;  
         ShowMessage.successNotification("lembur berhasil di${action == 'approve' ? 'setujui' : 'tolak'}", context);
         _fetchovertimeRequest(_selectedTabIndex == 0 ? 'n' : _selectedTabIndex == 1 ? 'y' : 'r'); // Refresh list
       } else {

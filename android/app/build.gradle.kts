@@ -1,55 +1,80 @@
+import java.util.Properties
+import java.io.FileInputStream
+
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+}
+
 plugins {
     id("com.android.application")
-    // START: FlutterFire Configuration
     id("com.google.gms.google-services")
-    // END: FlutterFire Configuration
     id("kotlin-android")
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
 }
 
 android {
-    namespace = "com.example.richzspot"
-    compileSdk = 35
+    namespace = "com.richzspotNewMobile"
+    compileSdk = flutter.compileSdkVersion
     ndkVersion = "27.0.12077973"
 
     compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-    // Kotlin DSL pakai setter
-    isCoreLibraryDesugaringEnabled = true
-}
-
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
+    }
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
+    signingConfigs {
+        create("release") { // Menggunakan create untuk mendefinisikan konfigurasi baru
+            if (keystoreProperties.getProperty("storeFile") != null &&
+                rootProject.file(keystoreProperties.getProperty("storeFile")).exists()) {
+                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            } else {
+                println(">>> Keystore rilis tidak dikonfigurasi atau file tidak ditemukan di " + (keystoreProperties.getProperty("storeFile") ?: "path tidak diset") + ". Build rilis mungkin menggunakan kunci debug atau gagal.")
+                // Opsi: Jika ingin build tetap jalan dengan debug key (JANGAN untuk Play Store):
+                // getByName("debug"). Ganti dengan ini jika fallback ke debug diperlukan.
+                // Tapi untuk rilis sesungguhnya, ini harus resolve atau build gagal.
+            }
+        }
+    }
+
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.richzspot"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = 21
-        targetSdk = 35
-        versionCode = flutter.versionCode
+        applicationId = "com.richzspotNewMobile"
+        minSdk = flutter.minSdkVersion // Menggunakan variabel Flutter lebih baik
+        targetSdk = flutter.targetSdkVersion // Menggunakan variabel Flutter lebih baik
+        versionCode = 6
         versionName = flutter.versionName
+        multiDexEnabled = true
     }
 
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+        getByName("release") { // Menggunakan getByName untuk mengakses build type yang sudah ada
+            isMinifyEnabled = true
+            isShrinkResources = true // Direkomendasikan untuk rilis
+            // Gunakan konfigurasi penandatanganan "release"
+            signingConfig = signingConfigs.getByName("release")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android.txt"),
+                "proguard-rules.pro"
+            )
         }
+        // getByName("debug") {
+        //     signingConfig = signingConfigs.getByName("debug") // Ini biasanya default
+        // }
     }
 }
 
 dependencies {
-    // ...
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
- // Or a compatible version
-    // ...
+    implementation("androidx.multidex:multidex:2.0.1")
 }
 
 flutter {

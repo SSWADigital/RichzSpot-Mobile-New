@@ -26,6 +26,9 @@
       name=":@@:flutter_plugin_android_lifecycle::release"
       project=":flutter_plugin_android_lifecycle"/>
   <library
+      name=":@@:fluttertoast::release"
+      project=":fluttertoast"/>
+  <library
       name=":@@:geolocator_android::release"
       project=":geolocator_android"/>
   <library
@@ -37,6 +40,9 @@
   <library
       name=":@@:image_picker_android::release"
       project=":image_picker_android"/>
+  <library
+      name=":@@:in_app_update::release"
+      project=":in_app_update"/>
   <library
       name=":@@:open_filex::release"
       project=":open_filex"/>
@@ -366,6 +372,19 @@
       jars="/home/jessey/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.8.22/b25c86d47d6b962b9cf0f8c3f320c8a10eea3dd1/kotlin-stdlib-jdk8-1.8.22.jar"
       resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"/>
   <library
+      name="androidx.multidex:multidex:2.0.1@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/3124710588eb5b05fe78f9547b41bb99/transformed/multidex-2.0.1/jars/classes.jar"
+      resolved="androidx.multidex:multidex:2.0.1"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/3124710588eb5b05fe78f9547b41bb99/transformed/multidex-2.0.1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa@jar"
       jars="/home/jessey/.gradle/caches/modules-2/files-2.1/io.flutter/armeabi_v7a_release/1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa/b6f4f69fec231389b192723a46e0e0d5b53b85db/armeabi_v7a_release-1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa.jar"
       resolved="io.flutter:armeabi_v7a_release:1.0.0-cf56914b326edb0ccb123ffdc60f00060bd513fa"/>
@@ -490,6 +509,19 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
+      name="com.google.android.play:app-update-ktx:2.1.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/315f32cfafbfd1d718312a73f06f3f33/transformed/jetified-app-update-ktx-2.1.0/jars/classes.jar"
+      resolved="com.google.android.play:app-update-ktx:2.1.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/315f32cfafbfd1d718312a73f06f3f33/transformed/jetified-app-update-ktx-2.1.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
       name="androidx.media:media:1.1.0@aar"
       jars="/home/jessey/.gradle/caches/8.9/transforms/8ff3b8e2d8f1f81b8381531384b15957/transformed/media-1.1.0/jars/classes.jar"
       resolved="androidx.media:media:1.1.0"
@@ -516,10 +548,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.mlkit:face-detection:16.1.6@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/79b78c3425deac615a9c85446cd9df1b/transformed/jetified-face-detection-16.1.6/jars/classes.jar"
-      resolved="com.google.mlkit:face-detection:16.1.6"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/79b78c3425deac615a9c85446cd9df1b/transformed/jetified-face-detection-16.1.6"
+      name="com.google.mlkit:face-detection:16.1.7@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/9f17a380f3c2da5a3cf4fac87b669814/transformed/jetified-face-detection-16.1.7/jars/classes.jar"
+      resolved="com.google.mlkit:face-detection:16.1.7"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/9f17a380f3c2da5a3cf4fac87b669814/transformed/jetified-face-detection-16.1.7"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -555,10 +587,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.mlkit:common:18.10.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/93fce7250e670dbba77cc644a6fa1880/transformed/jetified-common-18.10.0/jars/classes.jar"
-      resolved="com.google.mlkit:common:18.10.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/93fce7250e670dbba77cc644a6fa1880/transformed/jetified-common-18.10.0"
+      name="com.google.mlkit:common:18.11.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/5175af85754eb9628457619b33d91dea/transformed/jetified-common-18.11.0/jars/classes.jar"
+      resolved="com.google.mlkit:common:18.11.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/5175af85754eb9628457619b33d91dea/transformed/jetified-common-18.11.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -607,10 +639,23 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.android.gms:play-services-base:18.3.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/9b30de2a2ad485de090c1e5df8036dbd/transformed/jetified-play-services-base-18.3.0/jars/classes.jar"
-      resolved="com.google.android.gms:play-services-base:18.3.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/9b30de2a2ad485de090c1e5df8036dbd/transformed/jetified-play-services-base-18.3.0"
+      name="com.google.android.gms:play-services-base:18.5.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/77466d02270ceb44a7d1f9c00cd6ea69/transformed/jetified-play-services-base-18.5.0/jars/classes.jar"
+      resolved="com.google.android.gms:play-services-base:18.5.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/77466d02270ceb44a7d1f9c00cd6ea69/transformed/jetified-play-services-base-18.5.0"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.play:app-update:2.1.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/61bdacea554fa24da1cad7dec6385a92/transformed/jetified-app-update-2.1.0/jars/classes.jar"
+      resolved="com.google.android.play:app-update:2.1.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/61bdacea554fa24da1cad7dec6385a92/transformed/jetified-app-update-2.1.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -891,10 +936,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.android.gms:play-services-tasks:18.1.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/31a96ea29825dc07615ebc081c3b9ccb/transformed/jetified-play-services-tasks-18.1.0/jars/classes.jar"
-      resolved="com.google.android.gms:play-services-tasks:18.1.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/31a96ea29825dc07615ebc081c3b9ccb/transformed/jetified-play-services-tasks-18.1.0"
+      name="com.google.android.gms:play-services-tasks:18.2.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/8cdd26dda50fb243b9e9a779107451c6/transformed/jetified-play-services-tasks-18.2.0/jars/classes.jar"
+      resolved="com.google.android.gms:play-services-tasks:18.2.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/8cdd26dda50fb243b9e9a779107451c6/transformed/jetified-play-services-tasks-18.2.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -917,10 +962,10 @@
       externalAnnotations="annotations.zip"
       proguardRules="proguard.txt"/>
   <library
-      name="com.google.android.gms:play-services-basement:18.3.0@aar"
-      jars="/home/jessey/.gradle/caches/8.9/transforms/69588254df22e64d6d58662fd319c2ba/transformed/jetified-play-services-basement-18.3.0/jars/classes.jar"
-      resolved="com.google.android.gms:play-services-basement:18.3.0"
-      folder="/home/jessey/.gradle/caches/8.9/transforms/69588254df22e64d6d58662fd319c2ba/transformed/jetified-play-services-basement-18.3.0"
+      name="com.google.android.gms:play-services-basement:18.4.0@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/8a9f21fa770b6476b550698ceda238ef/transformed/jetified-play-services-basement-18.4.0/jars/classes.jar"
+      resolved="com.google.android.gms:play-services-basement:18.4.0"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/8a9f21fa770b6476b550698ceda238ef/transformed/jetified-play-services-basement-18.4.0"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"
@@ -1340,6 +1385,19 @@
       jars="/home/jessey/.gradle/caches/8.9/transforms/19dc238c458ab589310c637366107172/transformed/jetified-image-1.0.0-beta1/jars/classes.jar"
       resolved="com.google.android.odml:image:1.0.0-beta1"
       folder="/home/jessey/.gradle/caches/8.9/transforms/19dc238c458ab589310c637366107172/transformed/jetified-image-1.0.0-beta1"
+      manifest="AndroidManifest.xml"
+      resFolder="res"
+      assetsFolder="assets"
+      lintJar="lint.jar"
+      publicResources="public.txt"
+      symbolFile="R.txt"
+      externalAnnotations="annotations.zip"
+      proguardRules="proguard.txt"/>
+  <library
+      name="com.google.android.play:core-common:2.0.3@aar"
+      jars="/home/jessey/.gradle/caches/8.9/transforms/5f9b2160ac72c469b61b81a7b793b13d/transformed/jetified-core-common-2.0.3/jars/classes.jar"
+      resolved="com.google.android.play:core-common:2.0.3"
+      folder="/home/jessey/.gradle/caches/8.9/transforms/5f9b2160ac72c469b61b81a7b793b13d/transformed/jetified-core-common-2.0.3"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

@@ -26,6 +26,18 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "barcode",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/barcode-2.2.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "bidi",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/bidi-2.0.13",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/boolean_selector-2.1.2",
       "packageUri": "lib/",
@@ -141,9 +153,9 @@
     },
     {
       "name": "ffi",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/ffi-2.1.4",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/ffi-2.1.3",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.3"
     },
     {
       "name": "file",
@@ -237,7 +249,7 @@
     },
     {
       "name": "flutter_local_notifications",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/flutter_local_notifications-14.1.5",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/flutter_local_notifications-17.2.4",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -270,6 +282,12 @@
       "rootUri": "file:///home/jessey/Development/Flutter/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.7"
+    },
+    {
+      "name": "fluttertoast",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/fluttertoast-8.2.12",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "geolocator",
@@ -321,13 +339,13 @@
     },
     {
       "name": "google_mlkit_commons",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/google_mlkit_commons-0.6.1",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/google_mlkit_commons-0.11.0",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
     {
       "name": "google_mlkit_face_detection",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/google_mlkit_face_detection-0.10.1",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/google_mlkit_face_detection-0.13.1",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -402,6 +420,12 @@
       "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/image_picker_windows-0.2.1+1",
       "packageUri": "lib/",
       "languageVersion": "2.19"
+    },
+    {
+      "name": "in_app_update",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/in_app_update-4.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "intl",
@@ -482,6 +506,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "path_parsing",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/path_parsing-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "path_provider",
       "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/path_provider-2.1.5",
       "packageUri": "lib/",
@@ -516,6 +546,12 @@
       "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/path_provider_windows-2.3.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "pdf",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/pdf-3.11.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "permission_handler",
@@ -555,9 +591,9 @@
     },
     {
       "name": "petitparser",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/petitparser-6.1.0",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/petitparser-6.0.2",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.2"
     },
     {
       "name": "platform",
@@ -576,6 +612,12 @@
       "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/posix-6.0.2",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "qr",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/qr-3.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
     },
     {
       "name": "rxdart",
@@ -645,27 +687,27 @@
     },
     {
       "name": "sqflite",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite-2.4.2",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite-2.4.1",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.5"
     },
     {
       "name": "sqflite_android",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite_android-2.4.1",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite_android-2.4.0",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.5"
     },
     {
       "name": "sqflite_common",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite_common-2.5.5",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite_common-2.5.4+6",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.5"
     },
     {
       "name": "sqflite_darwin",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite_darwin-2.4.2",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/sqflite_darwin-2.4.1+1",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.5"
     },
     {
       "name": "sqflite_platform_interface",
@@ -699,9 +741,9 @@
     },
     {
       "name": "synchronized",
-      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/synchronized-3.3.1",
+      "rootUri": "file:///home/jessey/.pub-cache/hosted/pub.dev/synchronized-3.3.0+3",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.5"
     },
     {
       "name": "term_glyph",
@@ -821,10 +863,10 @@
       "name": "richzspot",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.6"
     }
   ],
-  "generated": "2025-05-21T02:00:12.499035Z",
+  "generated": "2025-06-22T15:09:05.754607Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///home/jessey/Development/Flutter/flutter",

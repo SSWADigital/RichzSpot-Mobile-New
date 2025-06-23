@@ -20,12 +20,10 @@ class SignScreen extends StatefulWidget {
 }
 
 class _SignScreenState extends State<SignScreen> {
-
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
   final authService = AuthService();
-
+  final emailController = TextEditingController();
   bool isLoading = false;
+  final passwordController = TextEditingController();
 
   Future<void> handleLogin() async {
     setState(() => isLoading = true);
@@ -38,9 +36,9 @@ class _SignScreenState extends State<SignScreen> {
     final getFcmServerKey = GetFcmServerKey();
     getFcmServerKey.serverToken().then((value) async {
     await AppStorage.setFCMServerToken(value!);
-    print('FCM Server Token: $value');
+    // print('FCM Server Token: $value');
     }).catchError((error) {
-      print('Error getting FCM Server Token: $error');      
+      print('Error getting FCM Server Token: $error');
     });
 
     // Simpan token dan platform ke storage
@@ -59,9 +57,10 @@ class _SignScreenState extends State<SignScreen> {
     if (result['status'] == true) {
       final token = result['token'];
       final user = result['data'];
+      final refreshToken = result['refresh_token'];
 
 
-      await AppStorage.saveLoginData(token, user);
+      await AppStorage.saveLoginData(token, refreshToken, user);
 
       if (user['face_token'] == null || user['face_token'] == '') {
         Navigator.pushReplacementNamed(context, AppRoutes.faceRecognationRegister);
@@ -77,18 +76,23 @@ class _SignScreenState extends State<SignScreen> {
     }
   }
 
-
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: AppColors.white,
+    body: SafeArea(
+      child: SingleChildScrollView(
+        // <<< AWAL PERUBAHAN >>>
+        // Bungkus Center dengan SizedBox untuk memberikan tinggi referensi
+        child: SizedBox(
+          // Ambil tinggi layar dan kurangi padding atas (status bar) agar perhitungan akurat di dalam SafeArea
+          height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
           child: Center(
             child: Container(
               constraints: const BoxConstraints(maxWidth: 390),
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 44),
               child: Column(
+                // mainAxisAlignment akan memusatkan semua anak Column secara vertikal
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Column(
@@ -138,108 +142,77 @@ class _SignScreenState extends State<SignScreen> {
                     child: Column(
                       children: [
                         CustomInputField(
-                placeholder: 'Enter your email',
-                icon: Icons.mail_outline,
-                controller: emailController,
-              ),
-              const SizedBox(height: 16),
-              CustomInputField(
-                placeholder: 'Enter your password',
-                icon: Icons.lock_outline,
-                isPassword: true,
-                controller: passwordController,
-              ),
-              const SizedBox(height: 24),
-              GradientButton(
-                text: isLoading ? 'Loading...' : 'Login',
-                onPressed: handleLogin,
-              ),
-                        // const SizedBox(height: 16),
-                        // const Text(
-                        //   'Forgot Password?',
-                        //   style: TextStyle(
-                        //     fontSize: 16,
-                        //     color: AppColors.primary,
-                        //     fontWeight: FontWeight.w400,
-                        //   ),
-                        // ),
+                          placeholder: 'Enter your email',
+                          icon: Icons.mail_outline,
+                          controller: emailController,
+                        ),
+                        const SizedBox(height: 16),
+                        CustomInputField(
+                          placeholder: 'Enter your password',
+                          icon: Icons.lock_outline,
+                          isPassword: true,
+                          controller: passwordController,
+                        ),
+                        const SizedBox(height: 24),
+                        GradientButton(
+                          text: isLoading ? 'Loading...' : 'Login',
+                          onPressed: handleLogin, // Nonaktifkan tombol saat loading
+                        ),
                       ],
                     ),
                   ),
-                  // const SizedBox(height: 24),
+                  
+                  const SizedBox(height: 48),
 
-                  // Sign Up Text
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  // Face Recognition Section
+                  // Column(
                   //   children: [
+                  //     Container(
+                  //       width: 59,
+                  //       height: 59,
+                  //       decoration: BoxDecoration(
+                  //         gradient: AppColors.circleGradient,
+                  //         shape: BoxShape.circle,
+                  //         boxShadow: const [
+                  //           BoxShadow(
+                  //             color: Color(0xFFBFDBFE),
+                  //             offset: Offset(0, 9.219),
+                  //             blurRadius: 13.828,
+                  //             spreadRadius: -2.766,
+                  //           ),
+                  //           BoxShadow(
+                  //             color: Color(0xFFBFDBFE),
+                  //             offset: Offset(0, 3.688),
+                  //             blurRadius: 5.531,
+                  //             spreadRadius: -3.688,
+                  //           ),
+                  //         ],
+                  //       ),
+                  //       child: Image.network(
+                  //         'https://cdn.builder.io/api/v1/image/assets/TEMP/b4d50370cbabf44eca087740c4cd832eaa16eadd',
+                  //         width: 60,
+                  //         height: 60,
+                  //       ),
+                  //     ),
+                  //     const SizedBox(height: 13),
                   //     const Text(
-                  //       "Don't have an account? ",
+                  //       'Login with Face Reco',
                   //       style: TextStyle(
                   //         fontSize: 16,
                   //         color: AppColors.textSecondary,
                   //       ),
                   //     ),
-                  //     GestureDetector(
-                  //       onTap: () {},
-                  //       child: const Text(
-                  //         'Sign Up',
-                  //         style: TextStyle(
-                  //           fontSize: 16,
-                  //           color: AppColors.primary,
-                  //         ),
-                  //       ),
-                  //     ),
                   //   ],
                   // ),
-                  
-                  const SizedBox(height: 48),
-
-                  // Face Recognition Section
-                  Column(
-                    children: [
-                      Container(
-                        width: 59,
-                        height: 59,
-                        decoration: BoxDecoration(
-                          gradient: AppColors.circleGradient,
-                          shape: BoxShape.circle,
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color(0xFFBFDBFE),
-                              offset: Offset(0, 9.219),
-                              blurRadius: 13.828,
-                              spreadRadius: -2.766,
-                            ),
-                            BoxShadow(
-                              color: Color(0xFFBFDBFE),
-                              offset: Offset(0, 3.688),
-                              blurRadius: 5.531,
-                              spreadRadius: -3.688,
-                            ),
-                          ],
-                        ),
-                        child: Image.network(
-                          'https://cdn.builder.io/api/v1/image/assets/TEMP/b4d50370cbabf44eca087740c4cd832eaa16eadd',
-                          width: 60,
-                          height: 60,
-                        ),
-                      ),
-                      const SizedBox(height: 13),
-                      const Text(
-                        'Login with Face Reco',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: AppColors.textSecondary,
-                        ),
-                      ),
-                    ],
-                  ),
+                
                 ],
               ),
             ),
           ),
         ),
       ),
+    )
     );
   }
+
 }

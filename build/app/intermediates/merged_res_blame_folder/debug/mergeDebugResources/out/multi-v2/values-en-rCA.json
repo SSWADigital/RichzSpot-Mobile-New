@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.richzspot.app-mergeDebugResources-55:/values-en-rCA/values-en-rCA.xml",
+            "outputFile": "com.richzspotNewMobile.app-mergeDebugResources-56:/values-en-rCA/values-en-rCA.xml",
             "map": [
                 {
                     "source": "/home/jessey/.gradle/caches/8.9/transforms/f6be8263864392f4d75a7a3f882b5b15/transformed/browser-1.8.0/res/values-en-rCA/values-en-rCA.xml",

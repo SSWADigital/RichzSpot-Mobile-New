@@ -1,14 +1,14 @@
 <lint-module
     format="1"
-    dir="/home/jessey/.pub-cache/hosted/pub.dev/flutter_local_notifications-14.1.5/android"
+    dir="/home/jessey/.pub-cache/hosted/pub.dev/flutter_local_notifications-17.2.4/android"
     name=":flutter_local_notifications"
     type="LIBRARY"
     maven="com.dexterous.flutterlocalnotifications:flutter_local_notifications:1.0-SNAPSHOT"
     agpVersion="8.7.0"
     buildFolder="/home/jessey/Development/App/RichzSpot-Mobile-New/build/flutter_local_notifications"
-    bootClassPath="/home/jessey/Android/Sdk/platforms/android-33/android.jar:/home/jessey/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    bootClassPath="/home/jessey/Android/Sdk/platforms/android-34/android.jar:/home/jessey/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
     javaSourceLevel="1.8"
-    compileTarget="android-33"
+    compileTarget="android-34"
     neverShrinking="true">
   <lintOptions
       disable="InvalidPackage"

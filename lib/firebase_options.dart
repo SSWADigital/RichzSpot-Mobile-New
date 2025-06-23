@@ -15,7 +15,6 @@ import 'package:flutter/foundation.dart'
 /// );
 /// ```
 
-
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -43,47 +42,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDe2CVvum173EUvIwEUfbreF0U82cr3Z6Q',
-    appId: '1:440995731038:web:24d25950fd261e8ce546cf',
-    messagingSenderId: '440995731038',
-    projectId: 'richzspot-mobile',
-    authDomain: 'richzspot-mobile.firebaseapp.com',
-    storageBucket: 'richzspot-mobile.firebasestorage.app',
+    apiKey: 'AIzaSyAH6F6sn6VZoSEWI3YxWejcsiXHcxuAoHY',
+    appId: '1:324674983335:web:ef4c451e92cb31807a9282',
+    messagingSenderId: '324674983335',
+    projectId: 'richzspotnewmobile',
+    authDomain: 'richzspotnewmobile.firebaseapp.com',
+    storageBucket: 'richzspotnewmobile.firebasestorage.app',
+    measurementId: 'G-T7CH8WF59Q',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDSVcLtuR8484D1s4Esvo2NLdPyOXL-kqk',
-    appId: '1:440995731038:android:3cd80cb460b4f994e546cf',
-    messagingSenderId: '440995731038',
-    projectId: 'richzspot-mobile',
-    storageBucket: 'richzspot-mobile.firebasestorage.app',
+    apiKey: 'AIzaSyCTmSzs6NOE6O2JLqp68Dbok-b5s9cIFyk',
+    appId: '1:324674983335:android:298ae88d68a6daaa7a9282',
+    messagingSenderId: '324674983335',
+    projectId: 'richzspotnewmobile',
+    storageBucket: 'richzspotnewmobile.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCQBFL6EPWH-9XYkk0oHKdFycNK-hf0f_8',
-    appId: '1:440995731038:ios:dfbcf4af246fb10ae546cf',
-    messagingSenderId: '440995731038',
-    projectId: 'richzspot-mobile',
-    storageBucket: 'richzspot-mobile.firebasestorage.app',
+    apiKey: 'AIzaSyCxHKOqQUwf3evQSrWaCrCskPSzuqDbK88',
+    appId: '1:324674983335:ios:e9ab2aa1a90daae17a9282',
+    messagingSenderId: '324674983335',
+    projectId: 'richzspotnewmobile',
+    storageBucket: 'richzspotnewmobile.firebasestorage.app',
     iosBundleId: 'com.example.richzspot',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCQBFL6EPWH-9XYkk0oHKdFycNK-hf0f_8',
-    appId: '1:440995731038:ios:dfbcf4af246fb10ae546cf',
-    messagingSenderId: '440995731038',
-    projectId: 'richzspot-mobile',
-    storageBucket: 'richzspot-mobile.firebasestorage.app',
+    apiKey: 'AIzaSyCxHKOqQUwf3evQSrWaCrCskPSzuqDbK88',
+    appId: '1:324674983335:ios:e9ab2aa1a90daae17a9282',
+    messagingSenderId: '324674983335',
+    projectId: 'richzspotnewmobile',
+    storageBucket: 'richzspotnewmobile.firebasestorage.app',
     iosBundleId: 'com.example.richzspot',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDe2CVvum173EUvIwEUfbreF0U82cr3Z6Q',
-    appId: '1:440995731038:web:76c74e5d03b17cbce546cf',
-    messagingSenderId: '440995731038',
-    projectId: 'richzspot-mobile',
-    authDomain: 'richzspot-mobile.firebaseapp.com',
-    storageBucket: 'richzspot-mobile.firebasestorage.app',
+    apiKey: 'AIzaSyAH6F6sn6VZoSEWI3YxWejcsiXHcxuAoHY',
+    appId: '1:324674983335:web:326dd6f7e6864eec7a9282',
+    messagingSenderId: '324674983335',
+    projectId: 'richzspotnewmobile',
+    authDomain: 'richzspotnewmobile.firebaseapp.com',
+    storageBucket: 'richzspotnewmobile.firebasestorage.app',
+    measurementId: 'G-037QQBG4R2',
   );
 
 }

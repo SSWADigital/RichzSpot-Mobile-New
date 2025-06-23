@@ -168,21 +168,16 @@ Future<void> _submitLeave() async {
       action: 'leave_request',
       menu: 'leave_request',
       additionalData: {
-        'izin_id': response.body,
+        'data': response.body,
         'izin_status': 'n',
         'izin_created': DateTime.now().toIso8601String(),
         'izin_updated': DateTime.now().toIso8601String(),
       },
     );
-
-    // print('Sukses: ${response.body}');
     ShowMessage.successNotification("Leave request sended successfully!", context);
-    // setState(() {
       widget.onCall();
-    // });
   } else {
     ShowMessage.errorNotification("Failed!", context);
-    // print('Gagal: ${response.body}');
   }
 
   setState(() => _isSubmitting = false);

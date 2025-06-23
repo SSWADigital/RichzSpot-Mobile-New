@@ -66,6 +66,8 @@ class _TimeOffApprovalScreenState extends State<TimeOffApprovalScreen> {
     try {
       final response = await http.get(Uri.parse(apiUrl));
 
+      print('Response Body: ${user}');
+
       if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
         setState(() {
@@ -73,8 +75,9 @@ class _TimeOffApprovalScreenState extends State<TimeOffApprovalScreen> {
           _isLoading = false;
         });
       } else {
+        final Map<String, dynamic> errorData = jsonDecode(response.body);
         setState(() {
-          _errorMessage = 'Failed to load timeOff requests. Status code: ${response.statusCode}';
+          _errorMessage = '${errorData['message']}';
           _isLoading = false;
         });
       }
@@ -95,6 +98,7 @@ class _TimeOffApprovalScreenState extends State<TimeOffApprovalScreen> {
     final String apiUrl = '${_baseUrl}cuti/${action}cuti';
     final prefs = await AppStorage.getUser();
     final userId = prefs?['user_id']; // Replace with actual user ID
+    final userName = prefs?['user_nama_lengkap']; // Replace with actual user name
     try {
       final response = await http.post(
         Uri.parse(apiUrl),
@@ -118,7 +122,7 @@ class _TimeOffApprovalScreenState extends State<TimeOffApprovalScreen> {
           recipientUserId: recipientUserId,
           userId: userId,
           title: 'timeOff Request ${action == 'approve' ? 'Approved' : 'Rejected'}',
-          body: 'Your timeOff request has been ${action == 'approve' ? 'approved' : 'rejected'}.',
+          body: '$userName Time Off request has been ${action == 'approve' ? 'approved' : 'rejected'}.',
           type: 'timeOff_approve',
           action: action,
           menu: 'timeOff_approve',

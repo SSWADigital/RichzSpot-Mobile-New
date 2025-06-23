@@ -52,40 +52,84 @@ class _LeaveApprovalScreenState extends State<LeaveApprovalScreen> {
   }
 
   Future<void> _fetchLeaveRequests(String status) async {
+  setState(() {
+    _isLoading = true;
+    _errorMessage = '';
+    _leaveRequests.clear();
+  });
+
+  final prefs = await AppStorage.getUser();
+  final userDepartemenId = prefs?['departemen_id']; // Using departemen_id as 'user' for the API path
+  final token = await AppStorage.getToken(); // Get the token from AppStorage
+
+  // Basic validation for user ID and token
+  if (userDepartemenId == null) {
     setState(() {
-      _isLoading = true;
-      _errorMessage = '';
-      _leaveRequests.clear();
+      _errorMessage = 'User department ID not found.';
+      _isLoading = false;
     });
+    return;
+  }
 
-    final prefs = await AppStorage.getUser();
-    final user = prefs?['departemen_id']; // Replace with actual user ID
+  if (token == null) {
+    setState(() {
+      _errorMessage = 'Failed to load data. Please log in again.';
+      _isLoading = false;
+    });
+    return;
+  }
 
-    final String apiUrl = '${_baseUrl}izin/getApprovalIzin/$user';
+  final String apiUrl = '${App.apiBaseUrl}izin/getApprovalIzin/$userDepartemenId';
 
-    try {
-      final response = await http.get(Uri.parse(apiUrl));
+  try {
+    final response = await http.get(
+      Uri.parse(apiUrl),
+      headers: {
+        'Authorization': 'Bearer $token', // Add the Authorization header
+        'Content-Type': 'application/json', // Often good practice to include
+      },
+    );
 
-      if (response.statusCode == 200) {
-        final List<dynamic> data = jsonDecode(response.body);
+    // if (response.statusCode == 401) {
+      // Handle unauthorized access, e.g., token expired
+      // setState(() {
+      //   _errorMessage = response.body;
+      //   _isLoading = false;
+      // });
+      // return;
+    // }
+
+    if (response.statusCode == 200) {
+      final List<dynamic> data = jsonDecode(response.body);
+      setState(() {
+        // Filter on the client-side as per your original logic
+        _leaveRequests = data.where((item) => item['izin_status'] == status).toList();
+        _isLoading = false;
+      });
+    } else {
+      // Handle non-200 status codes.
+      // Assuming the error response body is always JSON with a 'message' key.
+      try {
+        // final Map<String, dynamic> errorData = jsonDecode(response.body);
         setState(() {
-          _leaveRequests = data.where((item) => item['izin_status'] == status).toList();
+          _errorMessage = 'No Approval Leave Requests Found.';
           _isLoading = false;
         });
-      } else {
+      } catch (e) {
+        // Fallback if response.body is not valid JSON
         setState(() {
-          _errorMessage = 'Failed to load leave requests. Status code: ${response.statusCode}';
+          _errorMessage = 'Failed to load leave requests. Server responded with status ${response.statusCode}. Raw response: ${response.body}';
           _isLoading = false;
         });
       }
-    } catch (error) {
-      setState(() {
-        _errorMessage = 'There was a connection error: $error';
-        _isLoading = false;
-      });
     }
+  } catch (error) {
+    setState(() {
+      _errorMessage = 'There was a connection error: $error';
+      _isLoading = false;
+    });
   }
-
+}
   Future<void> _processLeaveRequest(
     String izinId,
     String recipientUserId,
@@ -95,6 +139,7 @@ class _LeaveApprovalScreenState extends State<LeaveApprovalScreen> {
     final String apiUrl = '${_baseUrl}izin/${action}Izin';
     final prefs = await AppStorage.getUser();
     final userId = prefs?['user_id']; // Replace with actual user ID
+    final userName = prefs?['user_nama_lengkap']; // Replace with actual user name
     try {
       final response = await http.post(
         Uri.parse(apiUrl),
@@ -115,7 +160,7 @@ class _LeaveApprovalScreenState extends State<LeaveApprovalScreen> {
           recipientUserId: recipientUserId,
           userId: userId,
           title: 'Leave Request ${action == 'approve' ? 'Approved' : 'Rejected'}',
-          body: 'Your leave request has been ${action == 'approve' ? 'approved' : 'rejected'}.',
+          body: 'leave request has been ${action == 'approve' ? 'approved' : 'rejected'} By $userName',
           type: 'leave_approve',
           action: action,
           menu: 'leave_approve',
@@ -429,7 +474,7 @@ class LeaveRequestCard extends StatelessWidget {
     final String additionalInfo = leaveData['izin_keterangan'] ?? '-';
     final String status = leaveData['izin_status'];
 
-    return GestureDetector(
+    return GestureDetector( 
       onTap: onClick,
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),

@@ -94,39 +94,86 @@ class FaceDetectionService {
     }
   }
 
-  Future<bool> saveUserFaceToken(String userId, String faceToken) async {
-      print("Data Face Last: $userId, $faceToken");
-    // try {
-  try {
-      final url = Uri.parse('${App.authBaseUrl}/auth/save_user_token');
-      final token = AppStorage.getToken();
-final response = await http.post(
-  url,
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer $token',
-  },
-  body: jsonEncode({
-    'user_id': userId,
-    'face_token': faceToken,
-  }),
-);
+//   Future<bool> saveUserFaceToken(String userId, String faceToken) async {
+//       print("Data Face Last: $userId, $faceToken");
+//     // try {
+//   try {
+//       final url = Uri.parse('${App.authBaseUrl}/auth/save_user_token');
+//       final token = AppStorage.getToken();
+// final response = await http.post(
+//   url,
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'Authorization': 'Bearer $token',
+//   },
+//   body: jsonEncode({
+//     'user_id': userId,
+//     'face_token': faceToken,
+//   }),
+// );
 
-      final data = jsonDecode(response.body);
+//       final data = jsonDecode(response.body);
+
+//     if (response.statusCode == 200) {
+//       // return data; // ✅ return Map
+//       return true;
+//     } else {
+//       return false;
+//       // return {'status': false, 'message': 'Invalid credentials'};
+//     }
+
+//     } catch (e) {
+//       print("Error Face: $e");
+//       return false;
+//     }
+//   }
+
+Future<bool> saveUserFaceToken(String userId, String faceToken, File imageFile) async {
+  print("Uploading Face Data: UserID: $userId, Token: $faceToken, Image Path: ${imageFile.path}");
+
+  try {
+    final url = Uri.parse('${App.authBaseUrl}/auth/save_user_token'); // URL API Anda
+    final token = await AppStorage.getToken(); // Menggunakan await jika getToken() adalah async
+
+    // 1. Buat MultipartRequest
+    var request = http.MultipartRequest('POST', url);
+
+    // 2. Tambahkan headers
+    request.headers['Authorization'] = 'Bearer $token';
+
+    // 3. Tambahkan data teks (fields)
+    request.fields['user_id'] = userId;
+    request.fields['face_token'] = faceToken;
+
+    // 4. Tambahkan file gambar
+    // 'profile_image' harus sama dengan nama field yang Anda gunakan di do_upload() di PHP
+    request.files.add(
+      await http.MultipartFile.fromPath(
+        'profile_image',
+        imageFile.path,
+      ),
+    );
+
+    // 5. Kirim request
+    var streamedResponse = await request.send();
+    var response = await http.Response.fromStream(streamedResponse);
+
+    print("Response from saveUserFaceToken: ${response.statusCode} - ${response.body}");
 
     if (response.statusCode == 200) {
-      // return data; // ✅ return Map
-      return true;
+      final data = jsonDecode(response.body);
+      return data['status'] ?? false; // Kembalikan status dari response API
     } else {
+      // Jika server mengembalikan error, log dan kembalikan false
+      print("Error uploading face data: ${response.body}");
       return false;
-      // return {'status': false, 'message': 'Invalid credentials'};
     }
 
-    } catch (e) {
-      print("Error Face: $e");
-      return false;
-    }
+  } catch (e) {
+    print("Error in saveUserFaceToken service: $e");
+    return false;
   }
+}
 
     Future<String> getFaceToken(String userId, String faceToken) async {
       print("Data Face Last: $userId, $faceToken");

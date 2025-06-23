@@ -1,0 +1,26 @@
+<lint-module
+    format="1"
+    dir="/home/jessey/.pub-cache/hosted/pub.dev/in_app_update-4.2.3/android"
+    name=":in_app_update"
+    type="LIBRARY"
+    maven="de.ffuf.in_app_update:in_app_update:1.0-SNAPSHOT"
+    agpVersion="8.7.0"
+    buildFolder="/home/jessey/Development/App/RichzSpot-Mobile-New/build/in_app_update"
+    bootClassPath="/home/jessey/Android/Sdk/platforms/android-31/android.jar:/home/jessey/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-31"
+    neverShrinking="true">
+  <lintOptions
+      disable="InvalidPackage"
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true">
+    <severities>
+      <severity
+        id="InvalidPackage"
+        severity="IGNORE" />
+    </severities>
+  </lintOptions>
+  <variant name="release"/>
+</lint-module>

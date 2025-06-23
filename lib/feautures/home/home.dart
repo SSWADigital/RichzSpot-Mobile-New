@@ -23,6 +23,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+  final List<String> _navTitles = ['Menu Utama', 'RichzCRM'];
+
+  // Daftar widget untuk setiap halaman
+  List<Widget> get _pages => <Widget>[
+    _buildGridSection(),
+    _buildRichzCRMGridSection(),
+    // const Center(child: Text('Halaman Tagihan', style: TextStyle(fontSize: 18, color: Colors.grey))),
+    // const Center(child: Text('Halaman Asuransi', style: TextStyle(fontSize: 18, color: Colors.grey))),
+  ];
+
 List<Map<String, dynamic>> announcements = [];
   var userData;
 
@@ -47,6 +58,7 @@ List<Map<String, dynamic>> announcements = [];
     void initState() {
       super.initState();
       getUserData();
+      
     //   _setupForegroundMessageListener();
     // _handleInitialMessage();
       
@@ -56,7 +68,7 @@ List<Map<String, dynamic>> announcements = [];
   final data = await AppStorage.getUser();
   setState(() {
     userData = data;
-    // print("user Id: ${userData['id_departemen']}");
+    // print("user Id: ${userData['id_role']}");
     _loadAnnouncements();
     _checkTodayAttendance();
   });
@@ -179,6 +191,8 @@ List<Map<String, dynamic>> announcements = [];
 
     try {
       final response = await _absenService.cekAbsen();
+
+      
       if (mounted) {
         setState(() {
           _absenData = {
@@ -207,8 +221,15 @@ List<Map<String, dynamic>> announcements = [];
           announcements = data;
         });
       } catch (e) {
+        // Redirect to sign in if Unauthorized
+        if (e.toString().contains('Unauthorized')) {
+          Navigator.pushReplacementNamed(context, AppRoutes.sign);
+        } else {
+          print('Error loading announcements: $e');
+          // Optionally show a snackbar or error message to the user
+        }
         // Handle error loading announcements
-        print('Error loading announcements: $e');
+        // print('Error loading announcements: $e');
         // Optionally show a snackbar or error message to the user
       }
     }
@@ -502,9 +523,40 @@ Widget _buildCheckInBox() {
     );
   }
 
+  Widget _buildNavButton({required int index, required String title}) {
+    bool isSelected = _selectedIndex == index;
+
+    return InkWell(
+      // Hilangkan efek splash default karena sudah ada feedback dari perubahan warna
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      onTap: () {
+        // Ubah state saat tombol ditekan
+        setState(() {
+          _selectedIndex = index;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+        margin: const EdgeInsets.only(right: 8),
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.primary : Colors.grey[200],
+          borderRadius: BorderRadius.circular(25.0),
+        ),
+        child: Text(
+          title,
+          style: TextStyle(
+            color: isSelected ? Colors.white : AppColors.primary,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+    );
+  }
+
 Widget _buildGridSection() {
   return Container(
-    margin: const EdgeInsets.only(top: 48),
+    margin: const EdgeInsets.only(top: 10),
     padding: const EdgeInsets.symmetric(horizontal: 0),
     child: Column(
       children: [
@@ -529,18 +581,47 @@ Widget _buildGridSection() {
           ],
         ),
         const SizedBox(height: 16),
-        if(userData['role_id'] != "2") ...[
+        if(userData['id_role'] != "4") ...[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildGridItem('assets/icon/3.png', AppRoutes.leaveApproval, 'Appv Leave'),
               _buildGridItem('assets/icon/2.png', AppRoutes.timeOffApproval, 'Appv Time Off'),
               _buildGridItem('assets/icon/5.png', AppRoutes.overtimeApproval, 'Appv Overtime'),
+              // _buildGridItem('assets/icon/8.png', AppRoutes.paySlipApproval, 'Appv Payslip'),
               // _buildGridItem('assets/icon/11.png', AppRoutes.announcement, 'Announcement'),
               // _buildGridItem('assets/icon/12.png', AppRoutes.chat, 'Chat'),
             ],
           ),
         ],
+      ],
+    ),
+  );
+}
+
+Widget _buildRichzCRMGridSection() {
+  return Container(
+    margin: const EdgeInsets.only(top: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 0),
+    child: Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildGridItem('assets/icon/tickets.png', AppRoutes.crmTickets, 'Tickets'),
+            _buildGridItem('assets/icon/programmer.png', AppRoutes.crmProgrammer, 'Proggrammer'),
+            _buildGridItem('assets/icon/tasklist.png', AppRoutes.crmTasklist, 'Tasklist'),
+          ],
+        ),
+        // const SizedBox(height: 16),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //   children: [
+        //     _buildGridItem('assets/icon/2.png', AppRoutes.crmContacts, 'Contacts'),
+        //     _buildGridItem('assets/icon/5.png', AppRoutes.crmAccounts, 'Accounts'),
+        //     _buildGridItem('assets/icon/8.png', AppRoutes.crmTasks, 'Tasks'),
+        //   ],
+        // ),
       ],
     ),
   );
@@ -802,8 +883,24 @@ Widget _buildCenterActionButton() {
                     // _buildTimeTrackingSection(),
                     _buildAnnouncementBanner(),
               // _buildChartImage(),
-              _buildGridSection(),
-              _buildKPISection(),
+              Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: List.generate(
+                _navTitles.length,
+                (index) => _buildNavButton(
+                  index: index,
+                  title: _navTitles[index],
+                ),
+              ),
+            ),
+          ),
+          Column(
+            children: [_pages.elementAt(_selectedIndex)],
+          ),
+              // _buildGridSection(),
+              // _buildKPISection(),
             //   ElevatedButton(
             //   onPressed: _sendNotification,
             //   child: const Text('Trigger Local Notification'),

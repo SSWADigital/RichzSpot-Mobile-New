@@ -27,6 +27,6 @@
       applicationId="com.dexterous.flutterlocalnotifications"
       generatedSourceFolders="/home/jessey/Development/App/RichzSpot-Mobile-New/build/flutter_local_notifications/generated/ap_generated_sources/release/out"
       generatedResourceFolders="/home/jessey/Development/App/RichzSpot-Mobile-New/build/flutter_local_notifications/generated/res/resValues/release"
-      desugaredMethodsFiles="/home/jessey/.gradle/caches/8.9/transforms/f10e760a0d008b36f2b733a90cbbbfb9/transformed/desugar_jdk_libs_configuration-1.1.5-desugar-lint.txt:/home/jessey/.gradle/caches/8.9/transforms/a424f7f149dc9313fb35df5d11590919/transformed/D8BackportedDesugaredMethods.txt">
+      desugaredMethodsFiles="/home/jessey/.gradle/caches/8.9/transforms/f26ac4b4e45d06626654b600edc6c571/transformed/desugar_jdk_libs_configuration-1.2.2-desugar-lint.txt:/home/jessey/.gradle/caches/8.9/transforms/749a24302837f91eadd282a9dbcb5e2e/transformed/D8BackportedDesugaredMethods.txt">
   </artifact>
 </variant>

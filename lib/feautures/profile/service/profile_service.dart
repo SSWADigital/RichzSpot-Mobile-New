@@ -9,7 +9,7 @@ class ProfileService {
   // static const String _baseUrl = '/'; // GANTI DENGAN URL API CI3 Anda
 
   static Future<Map<String, dynamic>> updateProfile(Map<String, dynamic> userData, File? imageFile) async {
-    final url = Uri.parse('${App.apiBaseUrl}User/update_profile');
+    final url = Uri.parse('${App.apiBaseUrl}Users/update_profile');
 
     var request = http.MultipartRequest('POST', url);
 
@@ -48,7 +48,7 @@ class ProfileService {
     required String currentPassword,
     required String newPassword,
   }) async {
-    final url = Uri.parse('${App.apiBaseUrl}User/change_password');
+    final url = Uri.parse('${App.apiBaseUrl}Users/change_password');
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
@@ -62,7 +62,7 @@ class ProfileService {
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {
-      return {'status': 'error', 'message': 'Server error: ${response.statusCode}'};
+      return {'status': 'error', 'message': 'Server error: ${response.body}'};
     }
   }
 
@@ -75,7 +75,7 @@ class ProfileService {
     if (response.statusCode == 200) {
       return json.decode(response.body);
     } else {
-      return {'status': 'error', 'message': 'Server error: ${response.statusCode}'};
+      return {'status': 'error', 'message': 'Server error: ${response.body}'};
     }
   }
 }

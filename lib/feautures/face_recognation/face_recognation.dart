@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:richzspot/core/constant/app.dart';
 import 'package:richzspot/core/constant/app_colors.dart';
+import 'package:richzspot/core/constant/app_routes.dart';
 import 'package:richzspot/core/storage/app_storage.dart';
 import 'package:richzspot/feautures/face_recognation/service/absen_servicel.dart';
 import 'package:richzspot/feautures/face_recognation/service/face_detection_service.dart';
@@ -32,6 +33,7 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
   // State variables - keeping all the original ones
   bool _isCheckedIn = false;
   bool _isCheckingOut = false;
+  String _faceToken = '';
   late CameraController _controller;
   bool _isFaceDetected = false;
   String _result = 'Ready for Check-In/Out';
@@ -226,62 +228,107 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
   }
 
   void _startFaceDetection() {
-    if (!mounted) return;
-    
-    Future.delayed(const Duration(seconds: 2), () async {
-      if (!mounted) return;
-      if (_controller.value.isInitialized && !_scanning) {
-        try {
-          final XFile file = await _controller.takePicture();
-          final currentFaceToken = await _detectFaceGetToken(File(file.path));
-          final faceToken = await AppStorage.getFaceToken();
+    final faceRecoService = FaceDetectionService();
+  // Guard utama: Jika tidak mounted atau sudah checkout, jangan lakukan apa-apa.
+  if (!mounted || _isCheckingOut) {
+    if (mounted && _isCheckingOut) {
+      print("Face detection loop tidak dimulai/dilanjutkan: Pengguna sudah Check-Out.");
+      // Pastikan pesan UI sudah benar jika masuk ke sini setelah _isCheckingOut jadi true
+      if (_result != 'Anda sudah Check-Out hari ini.') {
+        setState(() {
+          _result = 'Anda sudah Check-Out hari ini.';
+          _isFaceDetected = false; // Tidak ada deteksi aktif
+          _scanning = false;       // Tidak ada proses scanning
+        });
+      }
+    }
+    return; // Keluar dari fungsi, tidak ada loop rekursif
+  }
+  
+  Future.delayed(const Duration(seconds: 2), () async {
+    // Guard setelah delay: Periksa lagi mounted dan _isCheckingOut
+    if (!mounted || _isCheckingOut) {
+       if (mounted && _isCheckingOut && _result != 'Anda sudah Check-Out hari ini.') {
+          setState(() { _result = 'Anda sudah Check-Out hari ini.'; _isFaceDetected = false; _scanning = false; });
+       }
+      return;
+    }
 
-          if (currentFaceToken != null && faceToken != null) {
-            final confidence = await _compareFaces(currentFaceToken, faceToken);
+    if (_controller.value.isInitialized && !_scanning) {
+      try {
+        final XFile file = await _controller.takePicture();
+        final currentFaceToken = await _detectFaceGetToken(File(file.path));
+        final faceToken = await AppStorage.getFaceToken();
+
+        // ... (sisa logika deteksi, perbandingan, dan pemanggilan _processCheckIn/_processCheckOut Anda) ...
+        // Logika if (confidence >= confidenceThreshold) tetap sama seperti perbaikan sebelumnya:
+        if (currentFaceToken != null && _faceToken != '') {
+          final confidence = await _compareFaces(currentFaceToken, _faceToken);
+          if (mounted) {
             if (confidence != null && confidence >= confidenceThreshold) {
-              if (mounted) {
-                setState(() {
-                  _isFaceDetected = true;
+              setState(() {
+                _isFaceDetected = true;
+                _result = 'Wajah Terverifikasi!';
+              });
+
+              // Kondisi ini sekarang aman karena _startFaceDetection tidak akan berjalan jika _isCheckingOut = true
+              _isFaceDetected = true;
                   if (!_isCheckedIn && !_isCheckingOut) {
+                    // await faceRecoService.saveUserFaceToken(userData['user_id'], currentFaceToken);
+                    AppStorage.setFaceToken(currentFaceToken);
                     _processCheckIn();
                   } else if (_isCheckingOut) {
                     _processCheckOut();
                   }
-                });
-              }
-            } else {
-              if (mounted) {
-                setState(() {
-                  _isFaceDetected = false;
-                  _result = 'Face doesn\'t match, please try again';
-                });
-              }
-            }
-          } else {
-            if (mounted) {
+            } else { // Wajah tidak cocok
               setState(() {
                 _isFaceDetected = false;
-                _result = currentFaceToken == null ? 'No face detected' : 'User face data unavailable';
+                // ... (set _result sesuai kondisi: no face, no registered token, or not match)
+                if (currentFaceToken == null) { _result = 'Wajah tidak terdeteksi.'; }
+                else if (faceToken == null) { _result = 'Data wajah terdaftar tidak ditemukan.'; }
+                else { _result = 'Wajah tidak cocok, coba lagi.';}
               });
             }
           }
-        } catch (e) {
-          debugPrint('Error during face detection: $e');
-          if (mounted) {
-            setState(() {
-              _isFaceDetected = false;
-              _result = 'Error detecting face';
-            });
-          }
-        } finally {
-          if (mounted && !_scanning) {
+        } else { // Wajah tidak terdeteksi atau tidak ada token terdaftar
+            if (mounted) {
+              setState(() {
+                _isFaceDetected = false;
+                _result = currentFaceToken == null ? 'Tidak ada wajah terdeteksi saat ini' : 'Data wajah pengguna (terdaftar) tidak tersedia';
+              });
+            }
+        }
+        // ...
+      } catch (e) {
+        debugPrint('Error during face detection: $e');
+        if (mounted) {
+          setState(() {
+            _isFaceDetected = false;
+            _result = 'Error detecting face';
+          });
+        }
+      } finally {
+        if (mounted && !_scanning) {
+          // PENTING: Panggil _startFaceDetection lagi HANYA JIKA BELUM CHECKOUT
+          if (!_isCheckingOut) {
             _startFaceDetection();
+          } else {
+            // print("Face detection loop dihentikan di finally karena _isCheckingOut = true.");
+             if (_result != 'Anda sudah Check-Out hari ini.') { // Final UI sync
+                setState(() {
+                  _result = 'Anda sudah Check-Out hari ini.';
+                  _isFaceDetected = false;
+                });
+             }
           }
         }
       }
-    });
-  }
-
+    } else if (mounted && !_scanning && !_isCheckingOut) {
+        // Jika controller belum siap atau sedang scanning, dan belum checkout, coba lagi nanti.
+        _startFaceDetection();
+    }
+  });
+}
   Future<void> _checkTodayAttendance() async {
     if (userData == null || userData['user_id'] == null || !mounted) return;
 
@@ -297,9 +344,11 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
           setState(() {
             _isCheckedIn = response.isCheckedIn;
             _isCheckingOut = response.isCheckedOut;
+            _faceToken = response.faceToken ?? '';
+            // print("Response Absen: ${response.isCheckedIn}, ${response.isCheckedOut}");
             if (_isCheckedIn && !_isCheckingOut) {
               _result = 'Ready for Check-Out';
-            } else if (_isCheckedIn && _isCheckingOut) {
+            } else if (_isCheckingOut) {
               _result = 'Checked-Out Today';
             } else {
               _result = 'Ready for Check-In';
@@ -364,13 +413,11 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
     }
   }
 
-  Future<void> _processCheckOut() async {
-    // if (_scanning || !_isCheckedIn || _isCheckingOut || userData == null) return;
+Future<void> _processCheckOut() async {
     final cekAbsen = await _absenService.cekAbsen();
 
     final absenId = cekAbsen.absenId;
 
-    // print("Absen ID: $absenId");
 
     setState(() {
       _scanning = true;
@@ -389,7 +436,6 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
       }
 
       final response = await _absenService.absenCheckOut(absenId: currentAbsenId);
-      print("CheckOut: ${response.message}");
       if (mounted) {
         if (response.status) {
           setState(() {
@@ -409,15 +455,19 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
       }
     } catch (e) {
       if (mounted) {
+        String errorMessage = e.toString();
+        if (e is Exception) {
+          
+          errorMessage = e.toString().replaceFirst('Exception: ', '');
+        }
         setState(() {
           _scanning = false;
-          _result = 'Error during Check-Out: $e';
+          _result = errorMessage;
         });
-        _showErrorDialog('Check-Out Error', e.toString());
+        _showErrorDialog('Check-Out Error', errorMessage);
       }
     }
   }
-
   // Redesigned success dialog with futuristic UI
   void _showSuccessDialog(String title, bool isCheckIn) {
     showDialog(
@@ -483,7 +533,7 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: const TextStyle(fontSize: 16, color: Colors.white70),
+                  style: const TextStyle(fontSize: 16, color: Colors.black),
                   children: [
                     const TextSpan(text: "Hello, "),
                     TextSpan(
@@ -528,7 +578,12 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
               const SizedBox(height: 30),
               // OK button
               ElevatedButton(
-                onPressed: () => Navigator.of(context).pop(),
+                // onPressed: () => Navigator.of(context).pop(),
+                onPressed: () {
+                  // Navigate back to the main screen
+                  Navigator.of(context).pop();
+                  Navigator.pushReplacementNamed(context, AppRoutes.appRoot);
+                },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
@@ -568,7 +623,7 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
         ),
         content: Text(
           message,
-          style: const TextStyle(color: Colors.white70),
+          style: const TextStyle(color: Colors.black),
         ),
         actions: [
           TextButton(
@@ -900,10 +955,9 @@ class _FaceScannerState extends State<FaceScanner> with TickerProviderStateMixin
           color: _primaryColor, // Warna tombol checkout menjadi biru (sesuai gambar)
           onPressed: () {
             setState(() {
-              _isCheckingOut = true;
               _result = 'Scanning face for Check-Out...';
               _scanning = true;
-              // _processCheckOut();
+              _processCheckOut();
             });
           },
         ),

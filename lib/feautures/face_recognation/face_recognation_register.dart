@@ -152,7 +152,7 @@ class _FaceScannerRegisterState extends State<FaceScannerRegister> with TickerPr
         } catch (e) {
           if (mounted) {
             setState(() {
-              _result = 'Error: ${e.toString()}';
+              // _result = 'Error: ${e.toString()}';
               _isFaceDetected = false;
             });
             _startFaceDetection();
@@ -162,50 +162,130 @@ class _FaceScannerRegisterState extends State<FaceScannerRegister> with TickerPr
     });
   }
 
-  Future<void> _registerFace() async {
-    setState(() {
-      _scanning = true;
-      _result = '';
-    });
+  // Future<void> _registerFace() async {
+  //   setState(() {
+  //     _scanning = true;
+  //     _result = '';
+  //   });
 
-    try {
-      final XFile picture = await _controller.takePicture();
+  //   try {
+  //     final XFile picture = await _controller.takePicture();
       
-      final token = await _getFaceToken(File(picture.path));
-      if (token == null) {
-        setState(() {
-          _scanning = false;
-          _result = 'Face not detected.';
-        });
-        return;
-      }
+  //     final token = await _getFaceToken(File(picture.path));
+  //     if (token == null) {
+  //       setState(() {
+  //         _scanning = false;
+  //         _result = 'Face not detected.';
+  //       });
+  //       return;
+  //     }
 
-      final userData = await AppStorage.getUser();
-      final userId = userData?['user_id'];
+  //     final userData = await AppStorage.getUser();
+  //     final userId = userData?['user_id'];
       
-      try {
-        await faceRecoService.saveUserFaceToken(userId, token);
+  //     try {
+  //       await faceRecoService.saveUserFaceToken(userId, token);
+  //       await AppStorage.setFaceToken(token);
         
-        // Show success dialog
-        if (!mounted) return;
+  //       // Show success dialog
+  //       if (!mounted) return;
+  //       await showDialog(
+  //         context: context,
+  //         barrierDismissible: false,
+  //         builder: (BuildContext context) {
+  //           return AlertDialog(
+  //             backgroundColor: Colors.white.withOpacity(0.8),
+  //             shape: RoundedRectangleBorder(
+  //               borderRadius: BorderRadius.circular(20),
+  //             ),
+  //             title: const Text('Success', 
+  //               style: TextStyle(
+  //                 color: Colors.black, 
+  //                 fontWeight: FontWeight.bold
+  //               )
+  //             ),
+  //             content: const Text(
+  //               'Face registration successful!',
+  //               style: TextStyle(color: Colors.black)
+  //             ),
+  //             actions: <Widget>[
+  //               TextButton(
+  //                 child: const Text('OK', 
+  //                   style: TextStyle(
+  //                     color: Colors.greenAccent,
+  //                     fontWeight: FontWeight.bold
+  //                   )
+  //                 ),
+  //                 onPressed: () {
+  //                   Navigator.of(context).pop();
+  //                   // Navigate to home page or desired screen
+  //                   Navigator.of(context).pushReplacementNamed(AppRoutes.appRoot);
+  //                 },
+  //               ),
+  //             ],
+  //           );
+  //         },
+  //       );
+  //     } catch (e) {
+  //       setState(() {
+  //         _scanning = false;
+  //         _result = 'Registration failed. Please try again.';
+  //       });
+  //     }
+  //   } catch (e) {
+  //     setState(() {
+  //       _scanning = false;
+  //       _result = 'An error occurred. Please try again.';
+  //     });
+  //   }
+  // }
+
+  Future<void> _registerFace() async {
+  setState(() {
+    _scanning = true;
+    _result = '';
+  });
+
+  try {
+    final XFile picture = await _controller.takePicture();
+    final File imageFile = File(picture.path); // Buat objek File
+
+    final token = await _getFaceToken(imageFile); // Gunakan File yang sama untuk get token
+    if (token == null) {
+      setState(() {
+        _scanning = false;
+        _result = 'Face not detected.';
+      });
+      return;
+    }
+
+    final userData = await AppStorage.getUser();
+    final userId = userData?['user_id'];
+    
+    try {
+      await faceRecoService.saveUserFaceToken(userId, token, imageFile);
+      
+      await AppStorage.setFaceToken(token);
+      
+       if (!mounted) return;
         await showDialog(
           context: context,
           barrierDismissible: false,
           builder: (BuildContext context) {
             return AlertDialog(
-              backgroundColor: Colors.black.withOpacity(0.8),
+              backgroundColor: Colors.white.withOpacity(0.8),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
               title: const Text('Success', 
                 style: TextStyle(
-                  color: Colors.white, 
+                  color: Colors.black, 
                   fontWeight: FontWeight.bold
                 )
               ),
               content: const Text(
                 'Face registration successful!',
-                style: TextStyle(color: Colors.white)
+                style: TextStyle(color: Colors.black)
               ),
               actions: <Widget>[
                 TextButton(
@@ -225,19 +305,19 @@ class _FaceScannerRegisterState extends State<FaceScannerRegister> with TickerPr
             );
           },
         );
-      } catch (e) {
-        setState(() {
-          _scanning = false;
-          _result = 'Registration failed. Please try again.';
-        });
-      }
     } catch (e) {
       setState(() {
         _scanning = false;
-        _result = 'An error occurred. Please try again.';
+        _result = 'Registration failed. Please try again.';
       });
     }
+  } catch (e) {
+    setState(() {
+      _scanning = false;
+      _result = 'An error occurred. Please try again.';
+    });
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -375,7 +455,7 @@ class _FaceScannerRegisterState extends State<FaceScannerRegister> with TickerPr
                         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         margin: const EdgeInsets.only(bottom: 20),
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.5),
+                          color: Colors.white.withOpacity(0.5),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Text(
@@ -383,7 +463,7 @@ class _FaceScannerRegisterState extends State<FaceScannerRegister> with TickerPr
                               ? 'Face detected, please register!' 
                               : 'Align your face within the circle',
                           style: TextStyle(
-                            color: _isFaceDetected ? Colors.greenAccent : Colors.white,
+                            color: _isFaceDetected ? Colors.greenAccent : Colors.black,
                             fontSize: 16,
                           ),
                         ),

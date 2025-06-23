@@ -1,0 +1,22 @@
+2025-05-13 08:48:19.516 [info] Started local extension host with pid 64719.
+2025-05-13 08:48:19.703 [info] ComputeTargetPlatform: linux-x64
+2025-05-13 08:48:19.704 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-05-13 08:48:20.006 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-05-13 08:48:22.436 [info] [perf] Render performance baseline is 19ms
+2025-05-13 08:49:07.313 [error] [Extension Host] Error: ENOENT: no such file or directory, open '/root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/config/config.json'
+	at Object.writeFileSync (node:fs:2389:20)
+	at editor.apply (/root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:3652)
+	at a (/root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:4481)
+	at /root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:5432
+	at async Wb.h (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:119:41516)
+	at async /root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:4610
+	at async Wb.h (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:119:41516)
+2025-05-13 08:49:21.312 [error] [Extension Host] Error: ENOENT: no such file or directory, open '/root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/config/config.json'
+	at Object.writeFileSync (node:fs:2389:20)
+	at editor.apply (/root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:3652)
+	at a (/root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:4481)
+	at /root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:5432
+	at async Wb.h (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:119:41516)
+	at async /root/.vscode/extensions/richardluo.frosted-glass-theme-0.8.21/out/extension.js:15:4610
+	at async Wb.h (file:///usr/share/code/resources/app/out/vs/workbench/api/node/extensionHostProcess.js:119:41516)
+2025-05-13 08:49:33.953 [error] An unknown error occurred. Please consult the log for more details.

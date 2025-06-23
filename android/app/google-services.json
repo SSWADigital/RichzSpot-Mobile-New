@@ -1,21 +1,40 @@
 {
   "project_info": {
-    "project_number": "440995731038",
-    "project_id": "richzspot-mobile",
-    "storage_bucket": "richzspot-mobile.firebasestorage.app"
+    "project_number": "324674983335",
+    "project_id": "richzspotnewmobile",
+    "storage_bucket": "richzspotnewmobile.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:440995731038:android:3cd80cb460b4f994e546cf",
+        "mobilesdk_app_id": "1:324674983335:android:2c64f6f15474d86e7a9282",
         "android_client_info": {
-          "package_name": "com.example.richzspot"
+          "package_name": "com.richzspotMobile"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDSVcLtuR8484D1s4Esvo2NLdPyOXL-kqk"
+          "current_key": "AIzaSyCTmSzs6NOE6O2JLqp68Dbok-b5s9cIFyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324674983335:android:298ae88d68a6daaa7a9282",
+        "android_client_info": {
+          "package_name": "com.richzspotNewMobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTmSzs6NOE6O2JLqp68Dbok-b5s9cIFyk"
         }
       ],
       "services": {

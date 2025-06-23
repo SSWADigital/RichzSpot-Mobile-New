@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/drawable-v21_launch_background.xml.flat",
+        "source": "com.example.richzspot.app-main-72:/drawable-v21/launch_background.xml"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-mdpi_launcher_icon.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-mdpi/launcher_icon.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-xxhdpi_launcher_icon.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-xxhdpi/launcher_icon.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-mdpi_ic_launcher_old.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-mdpi/ic_launcher_old.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-hdpi_launcher_icon.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-hdpi/launcher_icon.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/raw_notif.mp3.flat",
+        "source": "com.example.richzspot.app-main-72:/raw/notif.mp3"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-xhdpi_launcher_icon.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-xhdpi/launcher_icon.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-xhdpi_ic_launcher_old.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-xhdpi/ic_launcher_old.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-xxxhdpi_launcher_icon.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-xxxhdpi/launcher_icon.png"
+    },
+    {
+        "merged": "com.example.richzspot.app-debug-70:/mipmap-hdpi_ic_launcher_old.png.flat",
+        "source": "com.example.richzspot.app-main-72:/mipmap-hdpi/ic_launcher_old.png"
+    }
+]

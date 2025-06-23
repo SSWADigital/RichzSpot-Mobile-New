@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.richzspot.app-mergeReleaseResources-55:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.richzspotNewMobile.app-mergeReleaseResources-56:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/home/jessey/Development/App/RichzSpot-Mobile-New/android/app/src/main/res/values-night/styles.xml",
